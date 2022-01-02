@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Palatino Linotype:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-atom.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Weo Wang&#39;s Der Bau">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Weo Wang&#39;s Der Bau">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Weo Wang">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Weo Wang's Der Bau</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Weo Wang's Der Bau</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/06/Study-S32K3-From-Scratch-BCTU/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weo Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weo Wang's Der Bau">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/06/Study-S32K3-From-Scratch-BCTU/" class="post-title-link" itemprop="url">Study S32K3 From Scratch - BCTU</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-06 13:07:00" itemprop="dateCreated datePublished" datetime="2021-10-06T13:07:00+08:00">2021-10-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-23 18:03:35" itemprop="dateModified" datetime="2021-10-23T18:03:35+08:00">2021-10-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>Who is this article for?</strong><br>For people who wants to start S32K3 development.<br><strong>What is this article about?</strong><br>In this article, we may not spend too much time on the details of S32K3. Instead, we will configure and debug different applications which utilize different peripherals, learning by doing it is the main theme of my articles.<br><strong>Why do I write this article?</strong><br>I struggled a lot at the beginning of learning embedded development, so I hope my articles can help people like me as a green hand, and they are also records of my self-teaching.</p>
+<h2 id="Introduction-of-BCTU-Module"><a href="#Introduction-of-BCTU-Module" class="headerlink" title="Introduction of BCTU Module"></a>Introduction of BCTU Module</h2><p>BCTU is the abbreviation of Body Cross-Triggering Unit, it accepts ADC conversion-request trigger inputs and routes those requests to one or more ADCs, there are two types of trigger sources:</p>
+<h3 id="Hardware-triggers-72-Trigger-Sources"><a href="#Hardware-triggers-72-Trigger-Sources" class="headerlink" title="Hardware triggers(72 Trigger Sources)"></a>Hardware triggers(72 Trigger Sources)</h3><ul>
+<li>69 eMIOS Trigger Sources</li>
+<li>3 TRGMUX Trigger Sources</li>
+</ul>
+<h3 id="Software-triggers-SFTRGRn"><a href="#Software-triggers-SFTRGRn" class="headerlink" title="Software triggers(SFTRGRn)"></a>Software triggers(SFTRGRn)</h3>
+<p>BCTU doesn’t work in STANDBY mode.</p>
+<h2 id="Conversion-Mode"><a href="#Conversion-Mode" class="headerlink" title="Conversion Mode"></a>Conversion Mode</h2><p>There are 2 conversion modes:</p>
+<ul>
+<li>Single Mode – Only 1 channel will be triggered</li>
+<li>LIST Mode – More than 1 channels can be triggered even they are from different ADC Instances(MPC, Multiple Parallel Conversions)</li>
+</ul>
+<h2 id="Trigger-Mechanism"><a href="#Trigger-Mechanism" class="headerlink" title="Trigger Mechanism"></a>Trigger Mechanism</h2><h3 id="Trigger-Timing"><a href="#Trigger-Timing" class="headerlink" title="Trigger Timing"></a>Trigger Timing</h3><p>There are 4 clock cycles between a BCTU trigger input’s assertion to a ADC trigger output’s assertion.</p>
+<img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P2.png" class="" title="This is an example image">
+<p>BCTU will generate a CLR[n] signal to clear the input trigger signal, at the same time, it will generate a signal to trigger the ADC.</p>
+<h3 id="Priority-Management"><a href="#Priority-Management" class="headerlink" title="Priority Management"></a>Priority Management</h3><p>If two or more trigger signals are inputted into BCTU at the same clock cycle, the lower the trigger input number, the higher is the priority, for example, TRG[0] &gt; TRG[1].</p>
+<img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P3.png" class="" title="This is an example image">
+<p>When a trigger input asserts a conversion request to an ADC that is already processing a conversion requested by a different trigger, the new trigger remains active (pending) until the conversion in progress completes. This behavior is the same as if the two triggers had been simultaneous (occurred in the same clock cycle). When the in-progress conversion completes, the pending trigger then competes for priority with any other active trigger for that ADC. </p>
+<h2 id="Example-Projects"><a href="#Example-Projects" class="headerlink" title="Example Projects"></a>Example Projects</h2><h3 id="BCTU-Software-Single-Trigger"><a href="#BCTU-Software-Single-Trigger" class="headerlink" title="BCTU Software Single Trigger"></a>BCTU Software Single Trigger</h3><p>In this example, we will use BCTU to trigger a single channel of ADC0(ADC0_48), the input trigger signal is generated by software. </p>
+<img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P4.png" class="" title="This is an example image">
+
+<h4 id="Pin-Configuration"><a href="#Pin-Configuration" class="headerlink" title="Pin Configuration"></a>Pin Configuration</h4><p>According to the Reference Manual, channel 48 is connected to bandgap voltage internally, so there is no need to configure any physical IOs.</p>
+<h4 id="Components-Configuration"><a href="#Components-Configuration" class="headerlink" title="Components Configuration"></a>Components Configuration</h4><img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P5.png" class="" title="This is an example image">
+<p>In this example we need Adc_Sar_Ip, osif, Siul2_Dio, Siul2_Port, and Bctu_Ip.</p>
+<h4 id="Adc-Sar-Ip-Configuration"><a href="#Adc-Sar-Ip-Configuration" class="headerlink" title="Adc_Sar_Ip Configuration"></a>Adc_Sar_Ip Configuration</h4><img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P6.png" class="" title="This is an example image">
+<p>Keep default configurations if there is no special requirement.</p>
+<img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P7.png" class="" title="This is an example image">
+<img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P8.png" class="" title="This is an example image">
+<img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P9.png" class="" title="This is an example image">
+
+<h4 id="Bctu-Ip-Configuretion"><a href="#Bctu-Ip-Configuretion" class="headerlink" title="Bctu_Ip Configuretion"></a>Bctu_Ip Configuretion</h4><img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P10.png" class="" title="This is an example image">
+<p>BCTU timeout type/value: configure the BCTU timeout type/value<br>Low power mode enabled: enable low power operating mode<br>Global HW triggers enabled: enable all the HW triggers globally<br>New data DMA enable mask: enable DMA transfer for per ADC instance<br>Fifo Dma Raw Data: enable DMA transfer Raw Data of Fifo Result register<br>Trigger notification: indicates at least one ADC was triggered<br>ADC notifications:</p>
+<ul>
+<li>New data notification (new conversion data is available for ADCn)</li>
+<li>Data overrun notification (data in ADCn has been overwritten with newer)</li>
+<li>List last conversion notification (ADCn executed the last conversion in a CL)</li>
+</ul>
+<img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P11.png" class="" title="This is an example image">
+
+<p>Internal Trigger configuration:</p>
+<ul>
+<li>Trigger Source (BCTU_EMIOS_0_0)</li>
+<li>Enable trigger loop (specifies that the current trigger executes in a loop)</li>
+<li>Data destination type (ADC data register, FIFO1, FIFO2)</li>
+<li>Enable HW triggering (enables HW triggers to initiate ADC conversions)</li>
+<li>Trigger type (Single, List)</li>
+<li>ADC target mask (select 1 or more ADC instances for conversions)</li>
+<li>Channel Id/List Start (the ADC channel or the address of first CL position)</li>
+</ul>
+<h4 id="Application-Codes"><a href="#Application-Codes" class="headerlink" title="Application Codes"></a>Application Codes</h4><img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P12.png" class="" title="This is an example image">
+<img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P13.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Mcal.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                        INCLUDE FILES</span></span><br><span class="line"><span class="comment">* 1) system and project includes</span></span><br><span class="line"><span class="comment">* 2) needed interfaces from external units</span></span><br><span class="line"><span class="comment">* 3) internal and external interfaces from this unit</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Siul2_Port_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Siul2_Dio_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Clock_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Adc_Sar_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Bctu_Ip.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                       LOCAL MACROS</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LIMIT_VALUE                  10000000U</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SARADC_VREF                  5000U</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SAR_ADC_INST0                0U                                    <span class="comment">/* ADC0 instance used  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BCTU_INST0                   0U</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BCTU_SW_TRIG0_IDX            0U                                    <span class="comment">/* ADC0  - eMIOS0_CH0  */</span></span></span><br><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                      GLOBAL VARIABLES</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line">uint16 g_Result_Adc0;                                    <span class="comment">/* ADC0  channel conversion result       */</span></span><br><span class="line">uint16 g_ResultInMv_Adc0;                                <span class="comment">/* ADC0  channel conversion result in mv */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">volatile</span> <span class="keyword">int</span> exit_code = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>Include the necessary .h files first, then define the local macros and global variables.</p>
+<img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P14.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* Write your code here */</span></span><br><span class="line"></span><br><span class="line">	uint32 flag;</span><br><span class="line">	uint32 count;</span><br><span class="line">	StatusType status;</span><br><span class="line"></span><br><span class="line">	Clock_Ip_Init(&amp;Mcu_aClockConfigPB[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/************************************************** Calibrate ADC ************************************************/</span></span><br><span class="line">    status = (StatusType) Adc_Sar_Ip_DoCalibration(SAR_ADC_INST0);</span><br><span class="line">    <span class="keyword">while</span> (status != E_OK)</span><br><span class="line">    &#123;</span><br><span class="line">    	status = (StatusType) Adc_Sar_Ip_DoCalibration(SAR_ADC_INST0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/************************************************* Initialize ADC ************************************************/</span></span><br><span class="line">	status = (StatusType) Adc_Sar_Ip_Init(SAR_ADC_INST0, &amp;AdcHwUnit_0_BOARD_INITPERIPHERALS);</span><br><span class="line">    <span class="keyword">while</span>(status != E_OK)</span><br><span class="line">	&#123;</span><br><span class="line">    	status = (StatusType) Adc_Sar_Ip_Init(SAR_ADC_INST0, &amp;AdcHwUnit_0_BOARD_INITPERIPHERALS);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/************************************************ Initialize BCTU ************************************************/</span></span><br><span class="line">    Bctu_Ip_Init(BCTU_INST0, &amp;BctuHwUnit_0_BOARD_INITPERIPHERALS);</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<p>Initialize the system clock, implement ADC calibration, then initialize the ADC and BCTU.</p>
+<img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P15.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">	count++;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(count &gt; LIMIT_VALUE)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">/* Start a SW triggered Single(ADC0) conversion on BCTU. */</span></span><br><span class="line">		Bctu_Ip_SwTriggerConversion(BCTU_INST0, BCTU_SW_TRIG0_IDX); <span class="comment">/* ADC0  */</span></span><br><span class="line"></span><br><span class="line">	    <span class="keyword">while</span>(!((flag = Bctu_Ip_GetStatusFlags(BCTU_INST0)) &amp; BCTU_IP_STATUS_ADC0_NDATA))</span><br><span class="line">	    &#123;</span><br><span class="line">	    	<span class="comment">/* Wait for the BCTU Single conversion be completed on SAR_ADC0. */</span></span><br><span class="line">	    &#125;</span><br><span class="line"></span><br><span class="line">		g_Result_Adc0 = Bctu_Ip_GetConvData(BCTU_INST0, SAR_ADC_INST0);</span><br><span class="line">		g_ResultInMv_Adc0 =  (uint16) (SARADC_VREF * g_Result_Adc0 / (<span class="number">0xFFF</span>));</span><br><span class="line"></span><br><span class="line">		Bctu_Ip_ClearStatusFlags(BCTU_INST0, BCTU_IP_STATUS_ADC0_NDATA);</span><br><span class="line"></span><br><span class="line">		count = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span>(;;)</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="keyword">if</span>(exit_code != <span class="number">0</span>)</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> exit_code;</span><br></pre></td></tr></table></figure>
+<p>We execute the software triggered single conversion on BCTU by putting the corresponding API in a while loop, then calculate the correct conversion results after the BCTU single conversion is finished. At last, we clear the selected BCTU status flag.</p>
+<h4 id="Test-Results"><a href="#Test-Results" class="headerlink" title="Test Results"></a>Test Results</h4><img src="/2021/10/06/Study-S32K3-From-Scratch-BCTU/P16.png" class="" title="This is an example image">
+<p>g_ResultInMv_Adc0 – 1207mV, Bandgap 1.2V, the BCTU Software Single Triggered Conversion is successfully implemented.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/25/Study-S32K3-From-Scratch-ADC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weo Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weo Wang's Der Bau">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/25/Study-S32K3-From-Scratch-ADC/" class="post-title-link" itemprop="url">Study S32K3 From Scratch - ADC</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-25 22:12:04" itemprop="dateCreated datePublished" datetime="2021-09-25T22:12:04+08:00">2021-09-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-02 11:34:18" itemprop="dateModified" datetime="2021-10-02T11:34:18+08:00">2021-10-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>Who is this article for?</strong><br>For people who wants to start S32K3 development.<br><strong>What is this article about?</strong><br>In this article, we may not spend too much time on the details of S32K3. Instead, we will configure and debug different applications which utilize different peripherals, learning by doing it is the main theme of my articles.<br><strong>Why do I write this article?</strong><br>I struggled a lot at the beginning of learning embedded development, so I hope my articles can help people like me as a green hand, and they are also records of my self-teaching.</p>
+<h2 id="Introduction-of-ADC-Module"><a href="#Introduction-of-ADC-Module" class="headerlink" title="Introduction of ADC Module"></a>Introduction of ADC Module</h2><p>There 3 instances of SAR-ADC module on S32K3X4, each module has 3 groups of ADC channels:</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p1.png" class="" title="This is an example image">
+<p>Details:</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p2.png" class="" title="This is an example image">
+
+<h2 id="Conversion-Mode"><a href="#Conversion-Mode" class="headerlink" title="Conversion Mode"></a>Conversion Mode</h2><p>There are 3 conversion modes:</p>
+<h3 id="Normal-–-supports-One-Shot-and-Scan-conversions"><a href="#Normal-–-supports-One-Shot-and-Scan-conversions" class="headerlink" title="Normal – supports One-Shot and Scan conversions"></a>Normal – supports One-Shot and Scan conversions</h3><p>One-Shot Mode - a sequential conversion is performed only once</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p3.png" class="" title="This is an example image">
+<p>Scan Mode - a sequential conversion is performed continuously</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p4.png" class="" title="This is an example image">
+<p>When a single conversion is completed, the EOC flag is set and the End of Conversion(EOC) interrupt is issued(if enabled in MSKEOC); when a conversion chain is completed(the last conversion in the chain is completed), the ECH flag is set and End of Chain(ECH) interrupt is issued(if enabled in MSKECH).</p>
+<h3 id="Injected-–-supports-One-Shot-Conversion-only"><a href="#Injected-–-supports-One-Shot-Conversion-only" class="headerlink" title="Injected – supports One-Shot Conversion only"></a>Injected – supports One-Shot Conversion only</h3><p>The Injected Conversion can only be inserted into an ongoing conversion chain processed in Normal Conversion Mode.<br>When a single conversion is completed, the End of Injected Conversion(JEOC) interrupt is issued; when a injected conversion chain is completed, the End of Injected Chain(JECH) interrupt is issued.</p>
+<h3 id="BCTU-–-supports-Single-and-List-Conversions"><a href="#BCTU-–-supports-Single-and-List-Conversions" class="headerlink" title="BCTU – supports Single and List Conversions"></a>BCTU – supports Single and List Conversions</h3><p>The BCTU interface enhances the Injected conversion capability of SAR_ADC, it generates the trigger and channel number to be converted, the conversion result as well as 2 output signals will be returned from ADC:</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p5.png" class="" title="This is an example image">
+<p>The BCTU and ADC are always connected to the same clock domain, therefore they are synchronous.<br>The Priority of 3 Conversion Types<br><strong>Request BCTU Conversion during Injected Mode:</strong><br>Injected Mode Conversion – aborted<br>BCTU Conversion – processed<br><strong>Request BCTU Conversion during Normal Mode:</strong><br>Normal Mode Conversion – suspended<br>BCTU Conversion - processed<br><strong>Request Normal Mode Conversion during BCTU Conversion:</strong><br>Normal Mode Conversion – start after the BCTU conversion is completed<br>BCTU Conversion – processed<br><strong>Request Injected Mode Conversion during BCTU Conversion:</strong><br>Injected Mode Conversion – discarded<br>BCTU Conversion – processed</p>
+<h2 id="Trigger-Mechanism"><a href="#Trigger-Mechanism" class="headerlink" title="Trigger Mechanism"></a>Trigger Mechanism</h2><p>There are 2 types of trigger:</p>
+<h3 id="Software-Trigger"><a href="#Software-Trigger" class="headerlink" title="Software Trigger"></a>Software Trigger</h3><ul>
+<li>   Normal – starts by setting NSTART bit</li>
+<li>   Injected – starts by setting JSTART bit<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p6.png" class="" title="This is an example image">
+<center>The conversion is started by CPU directly.</center></li>
+<li>   BCTU – starts by setting SFTRGn bit<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p7.png" class="" title="This is an example image">
+<center>The conversion is started by CPU via BCTU.</center></li>
+</ul>
+<h3 id="Hardware-Trigger"><a href="#Hardware-Trigger" class="headerlink" title="Hardware Trigger"></a>Hardware Trigger</h3><ul>
+<li>   Normal</li>
+<li>   Injected<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p8.png" class="" title="This is an example image">
+<center>The conversions are started by TRGMUX, it can be configured to select different triggers.</center></li>
+<li>   BCTU Triggered<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p9.png" class="" title="This is an example image">
+BCTU has 72 sources, 69 of them are triggered by eMIOS channels and the left 3 are triggered by other on-chip modules via TRGMUX.</li>
+</ul>
+<h2 id="Example-Projects"><a href="#Example-Projects" class="headerlink" title="Example Projects"></a>Example Projects</h2><p>First of all, we need to create a S32DS Application Project,</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p10.png" class="" title="This is an example image">
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p11.png" class="" title="This is an example image">
+<p>You need to choose the correct MCU when creating the project, here we select S32K344, whose engineering samples are available now.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p12.png" class="" title="This is an example image">
+<p>You need to choose the correct SDK version,</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p13.png" class="" title="This is an example image">
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p14.png" class="" title="This is an example image">
+<p>A S32K344 Application Project is now created.</p>
+<h3 id="Software-Triggered-Normal-One-Shot-Conversion-Example"><a href="#Software-Triggered-Normal-One-Shot-Conversion-Example" class="headerlink" title="Software Triggered Normal One-Shot Conversion Example"></a>Software Triggered Normal One-Shot Conversion Example</h3><p>In this example, we will use ADC0 to execute a software triggered Normal One-Shot Conversion Chain, the data will be red by Callback function(ECH). The conversion results of ADC0 are mapped to<br><strong>ADC0_S24(Bandgap)|S25(Tempsensor)|S26(ANAMUX_OUT)|S30(VREFL)|S31(VREFH)</strong><br>channels.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p15.png" class="" title="This is an example image">
+
+<h4 id="Pin-Configuration"><a href="#Pin-Configuration" class="headerlink" title="Pin Configuration"></a>Pin Configuration</h4><p>According to the Reference Manual, those channels are connected to some voltages internally, so there is no need to configure any physical IOs.</p>
+<h4 id="Components-Configuration"><a href="#Components-Configuration" class="headerlink" title="Components Configuration"></a>Components Configuration</h4><p>Double click the .mex file to configure necessary components,</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p16.png" class="" title="This is an example image">
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p17.png" class="" title="This is an example image">
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p18.png" class="" title="This is an example image">
+<p>Click the “+” in the Drivers item to add necessary components, in this example we need Adc_Sar_Ip, IntCtrl_Ip, osif, Siul2_Dio, and Siul2_Port.</p>
+<h5 id="Adc-Sar-Ip-Configuration"><a href="#Adc-Sar-Ip-Configuration" class="headerlink" title="Adc_Sar_Ip Configuration"></a>Adc_Sar_Ip Configuration</h5><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p19.png" class="" title="This is an example image">
+<p>If we don’t have special requirements, just keep default setting in this part.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p20.png" class="" title="This is an example image">
+<p><strong>Adc Sar timeout type/value</strong>: configure the Adc timeout type/value<br><strong>Adc Sar Enable Watchdog Api</strong>: enable Watchdog feature<br><strong>Adc Sar Enable End Of Channel Notification</strong>: enable EOC notification, we can set a call back function here<br><strong>Adc Sar Enable Tempsense Api</strong>: enable APIs for the tempsense<br><strong>Adc Hardware Unit</strong>: select the ADC instance(ADC0, ADC1, ADC2), here we select ADC0<br><strong>Adc Conversion Mode</strong>: select the Normal conversion mode(One Shot, Scan), here we select One-Shot mode<br><strong>Adc Prescaler Value</strong>: select the conversion clock frequency - Full bus, Half bus, Quarter bus<br><strong>Adc Calibration Prescaler</strong>: select the calibration clock frequency - Full bus, Half bus, Quarter bus<br><strong>Adc Power Down Delay</strong>: the delay between out of power down into idle state<br><strong>Adc Mux Delay</strong>: configure the delay for decoding Input MUX channels<br><strong>Adc Auto Clock Off</strong>: enable Auto Clock Off feature, thus the power consumption can be reduced when ADC is in idle state<br><strong>Adc Bypass sampling</strong>: select whether the pre sampling is followed by sampling<br><strong>Overwrite enable</strong>: enable overwriting new conversion data over old data<br><strong>Adc Presampling channel</strong>: enable pre-sampling feature for the channel group<br><strong>Adc Ctu mode</strong>: select the CTU mode (Disabled, Trigger, Control)<br><strong>Injected external trigger mode</strong>: enable HW trigger for Injected conversion<br><strong>Normal external trigger mode</strong>: enable HW trigger for Normal conversion</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p21.png" class="" title="This is an example image">
+<p><strong>User Offset/Gain</strong>: configure the extra offset/ gain value<br><strong>Conversion resolution</strong>: select the number of significant bits per conversion data<br><strong>End of normal/injected chain notification</strong>: set the ECH/JECH callback function<br><strong>End of Ctu conversion notification</strong>: set the EOBCTU callback function<br><strong>End of channel conversion notification</strong>: set the EOC callback function<br><strong>Watchdog out of range notification</strong>: set watchdog out of range callback function<br><strong>Adc Unit Normal Sampling Duration</strong>: configure sample time for channel group<br><strong>Channel configurations for Chains</strong>: enable channel index in the Normal/Injected Chain conversion</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p22.png" class="" title="This is an example image">
+<p><strong>Channel configurations array</strong>:<br>Adc Hardware channel ID (AN_0-7, AN_32-55, AN_64-95), here we choose AN_48 -AN_55<br>Adc Enable Presampling<br>Adc Enable Threshold<br>Watchdog Threshold Register Index (AdcThresholdControl_0-3)<br>End of conversion notification enable<br>Watchdog notification enable</p>
+<h5 id="IntCtrl-Ip-Configuration"><a href="#IntCtrl-Ip-Configuration" class="headerlink" title="IntCtrl_Ip Configuration"></a>IntCtrl_Ip Configuration</h5><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p23.png" class="" title="This is an example image">
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p24.png" class="" title="This is an example image">
+<p>Click “+” to add an Interrupt Configuration Set “IntCtrlConfig_0” here, and enable interrupts that we need in “Interrupt Controller”. In this example we select ADC0, so ADC0’s Interrupt should be enabled, and we can set the priority to 5.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p25.png" class="" title="This is an example image">
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p26.png" class="" title="This is an example image">
+<p>Add ADC0’s Interrupt Handler in “Generic Interrupt Setting”.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p27.png" class="" title="This is an example image">
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p28.png" class="" title="This is an example image">
+<p>Don’t forget to update the code after finishing the component configurations.</p>
+<h4 id="Application-Codes"><a href="#Application-Codes" class="headerlink" title="Application Codes"></a>Application Codes</h4><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p29.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Including necessary configuration files. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Mcal.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                        INCLUDE FILES</span></span><br><span class="line"><span class="comment">* 1) system and project includes</span></span><br><span class="line"><span class="comment">* 2) needed interfaces from external units</span></span><br><span class="line"><span class="comment">* 3) internal and external interfaces from this unit</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Siul2_Port_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Siul2_Dio_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Clock_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;IntCtrl_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Adc_Sar_Ip.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                       LOCAL MACROS</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LIMIT_VALUE                  10000000U</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SARADC_VREF                  5000U                                <span class="comment">/* 5v reference voltage */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SAR_ADC_INST0                0U                                   <span class="comment">/* ADC0 instance used   */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SAR_ADC_INST0_CH_NUM         5U                                   <span class="comment">/* ADC0 channel number  */</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                      GLOBAL VARIABLES</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line">uint16 g_Result_Adc0[<span class="number">5</span>];                                 <span class="comment">/* ADC0 channel conversion results       */</span></span><br><span class="line">uint16 g_ResultInMv_Adc0[<span class="number">5</span>];                             <span class="comment">/* ADC0 channel conversion results in mv */</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Double click the “main.c” file in the project that you created to open and edit it.<br>Include the necessary .h files first, then define the local macros and global variables.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p30.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                       GLOBAL FUNCTIONS</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* @brief        Adc notification called by the end of Normal chain conversion periodically</span></span><br><span class="line"><span class="comment">* @details      Used to read the conversion results of</span></span><br><span class="line"><span class="comment">* ADC0_S24(Bandgap)|S25(Tempsensor)|S26(ANAMUX_OUT)|S30(VREFL)|S31(VREFH) channels</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ADC0_ECH_ISR_Callback</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	uint32 i;</span><br><span class="line"></span><br><span class="line">	Adc_Sar_Ip_GetConvDataToArray(SAR_ADC_INST0, ADC_SAR_IP_CONV_CHAIN_NORMAL, SAR_ADC_INST0_CH_NUM, g_Result_Adc0);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; SAR_ADC_INST0_CH_NUM; i++)</span><br><span class="line">	&#123;</span><br><span class="line">	    g_ResultInMv_Adc0[i] =  (uint16) (SARADC_VREF * g_Result_Adc0[i] / (<span class="number">0xFFF</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* @brief        ADC_0 Interrupt handler</span></span><br><span class="line"><span class="comment">* @details      Defined in Adc_Sar_Ip_Isr.c</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="title">ISR</span><span class="params">(Adc_Sar_0_Isr)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">volatile</span> <span class="keyword">int</span> exit_code = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>When configuring the Adc_Sar_Ip component, we need to define the ADC interrupt callback function called ADC0_ECH_ISR_Callback here to get the results of the Normal One-Shot Conversion, and the Interrupt Handler Adc_Sar_0_Isr should be declared here.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p31.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* Write your code here */</span></span><br><span class="line">	uint32 count;</span><br><span class="line">	StatusType status;</span><br><span class="line"></span><br><span class="line">	Clock_Ip_Init(&amp;Mcu_aClockConfigPB[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/************************************************** Calibrate ADC ************************************************/</span></span><br><span class="line">    status = (StatusType) Adc_Sar_Ip_DoCalibration(SAR_ADC_INST0);</span><br><span class="line">    <span class="keyword">while</span> (status != E_OK)</span><br><span class="line">    &#123;</span><br><span class="line">    	status = (StatusType) Adc_Sar_Ip_DoCalibration(SAR_ADC_INST0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/************************************************** Self-Test ADC ************************************************/</span></span><br><span class="line">    status = (StatusType) Adc_Sar_Ip_SelfTest(SAR_ADC_INST0);</span><br><span class="line">    <span class="keyword">while</span> (status != E_OK)</span><br><span class="line">    &#123;</span><br><span class="line">    	status = (StatusType) Adc_Sar_Ip_SelfTest(SAR_ADC_INST0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/************************************************* Initialize ADC ************************************************/</span></span><br><span class="line">	status = (StatusType) Adc_Sar_Ip_Init(SAR_ADC_INST0, &amp;AdcHwUnit_0_BOARD_INITPERIPHERALS);</span><br><span class="line">    <span class="keyword">while</span>(status != E_OK)</span><br><span class="line">	&#123;</span><br><span class="line">    	status = (StatusType) Adc_Sar_Ip_Init(SAR_ADC_INST0, &amp;AdcHwUnit_0_BOARD_INITPERIPHERALS);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Initialize the system clock, implement ADC calibration and Self-test, then initialize the ADC.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p32.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">/*********************************** Enable ADC0 ECH Callback Function ************************************/</span></span><br><span class="line">Adc_Sar_Ip_EnableNotifications(SAR_ADC_INST0, ADC_SAR_IP_NOTIF_FLAG_NORMAL_ENDCHAIN);</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**************************** Install and enable ADC1|2 ECH|JECH|WDOG interrupt ISRs. ****************************/</span></span><br><span class="line">IntCtrl_Ip_ConfigIrqRouting(&amp;intRouteConfig);</span><br><span class="line">IntCtrl_Ip_Init(&amp;IntCtrlConfig_0);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">	count++;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(count &gt; LIMIT_VALUE)</span><br><span class="line">	&#123;</span><br><span class="line">           <span class="comment">/* Start a SW triggered NORMAL One-Shot conversion chain on SAR_ADC0. */</span></span><br><span class="line">	    Adc_Sar_Ip_StartConversion(SAR_ADC_INST0, ADC_SAR_IP_CONV_CHAIN_NORMAL);</span><br><span class="line">		count = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span>(;;)</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="keyword">if</span>(exit_code != <span class="number">0</span>)</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> exit_code;</span><br></pre></td></tr></table></figure>
+<p>Enable ADC ISR callback functions and install ADC ISR, then initialize the configured interrupts.<br>Because ADC0 is configured to Software Triggered Normal One-Shot mode, the conversion will only be implement once, so we put it in a while loop.</p>
+<h4 id="Test-Results"><a href="#Test-Results" class="headerlink" title="Test Results"></a>Test Results</h4><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p33.png" class="" title="This is an example image">
+<p>Click Build to compile the project.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p34.png" class="" title="This is an example image">
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p35.png" class="" title="This is an example image">
+<p>Select “Debug FLASH”, then click debug to download the .elf file.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p36.png" class="" title="This is an example image">
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p37.png" class="" title="This is an example image">
+<p>Click “Switch” to switch to the debug mode, and we can set a breakpoint at the function which implements the conversion by double-clicking the bar in the left side.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p38.png" class="" title="This is an example image">
+<p>Add new expressions in the “Expressions” window to observe the conversion results.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p39.png" class="" title="This is an example image">
+<p>Click “Resume” or “Step Over” to run the code, and the conversion results will be shown in the Expressions window, if the data is updated, the background’s color will be changed.<br>Let’s see the conversion results g_ResultInMv_Adc0[5]:<br>g_ResultInMv_Adc0[0] – 1205mV, Bandgap 1.2V<br>g_ResultInMv_Adc0[1] – 915mV, Tempsensor 0.9V<br>g_ResultInMv_Adc0[2] – 1739mV, ANAMUX_OUT 1.7V<br>g_ResultInMv_Adc0[3] – 6mV, VREFL 0V<br>g_ResultInMv_Adc0[4] – 5000mV, VREFH 5V</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p40.png" class="" title="This is an example image">
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p41.png" class="" title="This is an example image">
+<p>For ADC0_S26, it’s mapped to ANAMUX_OUT internally, in the reference manual, we can know that the value of ANAMUX_OUT is selected by DCMRWF1[SUPPLY_MON_SELECT] field, </p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p42.png" class="" title="This is an example image">
+<p>We can observe the register,</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p43.png" class="" title="This is an example image">
+<p>ANAMUX_OUT is monitoring VDD_HV_A_DIV, the ratio of the divider is 1/2.</p>
+<h3 id="Software-Triggered-Normal-Scan-Conversion-Example"><a href="#Software-Triggered-Normal-Scan-Conversion-Example" class="headerlink" title="Software Triggered Normal Scan Conversion Example"></a>Software Triggered Normal Scan Conversion Example</h3><p>In this example, we will use ADC1 to execute a software triggered Normal Scan Conversion Chain, the data will be read in a while loop. The conversion results of ADC1 are mapped to<br><strong>ADC1_S8(VREFH)|S9(VREFH)|S10(POT0)</strong><br>channels, POT0 is a potentiometer.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p44.png" class="" title="This is an example image">
+<p>In this example we will also implement Analog Watchdog to monitor the voltage of POT0, if the voltage violates the low or high threshold, the Analog Watchdog Interrupt will be triggered and in corresponding Callback function, different LEDs will be toggled to indicate the violation types:<br>Normal - RGBLED0 Red<br>Low threshold violation - RGBLED0 Green<br>High threshold violation - RGBLED0 Blue</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p45.png" class="" title="This is an example image">
+<p>ADC1_S8&amp;S9 are mapped to pins, but on our test board, there is no any voltages inputted into them, so we will enable presampling feature, the 2 channels will sample a reference voltage. Presampling feature allows to precharge or discharge the SAR_ADC internal sample capacitor node to a defined level before sampling of the selected analog input channel starts, thus it’s very useful to avoid a memory effect in the comparison due to a previous conversion.</p>
+<h4 id="Pin-Configuration-1"><a href="#Pin-Configuration-1" class="headerlink" title="Pin Configuration"></a>Pin Configuration</h4><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p46.png" class="" title="This is an example image">
+<p>Click “Pins” to configure necessary pins that we need to use.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p47.png" class="" title="This is an example image">
+<p>Configure Pins that we used according to the connections in schematics.</p>
+<h4 id="Components-Configuration-1"><a href="#Components-Configuration-1" class="headerlink" title="Components Configuration"></a>Components Configuration</h4><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p48.png" class="" title="This is an example image">
+<p>In this example we need Adc_Sar_Ip, IntCtrl_Ip, osif, Siul2_Dio, and Siul2_Port.</p>
+<h5 id="Adc-Sar-Ip-Configuration-1"><a href="#Adc-Sar-Ip-Configuration-1" class="headerlink" title="Adc_Sar_Ip Configuration"></a>Adc_Sar_Ip Configuration</h5><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p49.png" class="" title="This is an example image">
+<p>“Adc_Sar_Enable_Watchdog_Api” should be chosen here, otherwise the watchdog handling code will be removed at pre-compile time and nothing related to this functionality can be configured in any unit.<br>Select the Instance ADC1.<br>Select the Scan Conversion Mode.<br>Enable Adc Bypass sampling to let the sampling follows the pre-sampling.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p50.png" class="" title="This is an example image">
+<p>ADC1_S8(channel 32), S9(channel 33) and S10(channel 34) are included in Adc Presampling channel 32-63, here we set VREFH as their presampling voltage.<br>Set watchdog out of range callback function “ADC1_WDG_ISR_Callback”.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p51.png" class="" title="This is an example image">
+<p>Add AN_32, AN_33 and AN_34 in Channel configurations Chains and enable them in normal chain.<br>Add AN_32, AN_33 and AN_34 in Channel configurations array, and enable the Adc Enable Presampling of AN_32 and AN_33.<br>Add an item in Watchdog threshold configurations array, and input the Low hreshold and high Threshold, then enable them. The resolution of Low and High threshold is the same as the Conversion resolution that we defined.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p52.png" class="" title="This is an example image">
+<p>Choose an Adc Threshold Control Register for AN_34, enable the Adc Enable Presampling and Watchdog notification enable.</p>
+<h5 id="IntCtrl-Ip-Configuration-1"><a href="#IntCtrl-Ip-Configuration-1" class="headerlink" title="IntCtrl_Ip Configuration"></a>IntCtrl_Ip Configuration</h5><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p53.png" class="" title="This is an example image">
+<p>Click “+” to add a Interrupt Configuration Set “IntCtrlConfig_0” here, and enable interrupts that we need in “Interrupt Controller”. In this example we select ADC1, so ADC1’s Interrupt should be enabled, and we can set the priority to 5.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p54.png" class="" title="This is an example image">
+<p>Add ADC1’s Interrupt Handler in “Generic Interrupt Setting”.</p>
+<h4 id="Application-Codes-1"><a href="#Application-Codes-1" class="headerlink" title="Application Codes"></a>Application Codes</h4><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p55.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Including necessary configuration files. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Mcal.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                        INCLUDE FILES</span></span><br><span class="line"><span class="comment">* 1) system and project includes</span></span><br><span class="line"><span class="comment">* 2) needed interfaces from external units</span></span><br><span class="line"><span class="comment">* 3) internal and external interfaces from this unit</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Siul2_Port_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Siul2_Dio_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Clock_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;IntCtrl_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Adc_Sar_Ip.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                       LOCAL MACROS</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TURN_ON_LED                  1U</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TURN_OFF_LED                 0U</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LIMIT_VALUE                  10000000U</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SARADC_VREF                  5000U                                <span class="comment">/* 5v reference voltage */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SAR_ADC_INST1                1U                                   <span class="comment">/* ADC1 instance used   */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SAR_ADC_INST1_CH_NUM         3U                                   <span class="comment">/* ADC1 channel number  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> WDG_THRESHOLD_NORMAL         0U                                   <span class="comment">/* WDG  range normal    */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> WDG_LOW_THRESHOLD_VIOLATION  1U                                   <span class="comment">/* low  range violation */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> WDG_HIGH_THRESHOLD_VIOLATION 2U                                   <span class="comment">/* high range violation */</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                      GLOBAL VARIABLES</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line">uint16 g_Result_Adc1[<span class="number">3</span>];                                 <span class="comment">/* ADC1 channel conversion results       */</span></span><br><span class="line">uint16 g_ResultInMv_Adc1[<span class="number">3</span>];                             <span class="comment">/* ADC1 channel conversion results in mv */</span></span><br><span class="line">uint16 g_Adc_Wdg_Violation_Status;                       <span class="comment">/* Status of AnaWatchdog range violation */</span></span><br><span class="line">uint16 g_Adc_Wdg_Violation_CH_Number;                    <span class="comment">/* Channel number of WDG range violation */</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Include the necessary .h files first, then define the local macros and global variables.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p56.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                       GLOBAL FUNCTIONS</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* @brief        Adc notification called by the Watchdog threshold value out of range</span></span><br><span class="line"><span class="comment">* @details      Used to test the detection function of Analog Watchdog low(D29_GREEN)|high(D30_BLUE)</span></span><br><span class="line"><span class="comment">* 				threshold value violation</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ADC1_WDG_ISR_Callback</span><span class="params">(uint16 u16ChanIdx)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	(<span class="keyword">void</span>) u16ChanIdx;</span><br><span class="line">	g_Adc_Wdg_Violation_Status = WDG_THRESHOLD_NORMAL;</span><br><span class="line">	g_Adc_Wdg_Violation_CH_Number = u16ChanIdx;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(<span class="number">0</span> != (ADC_1-&gt;WTISR &amp; ADC_WTISR_LAWIF1_MASK))</span><br><span class="line">	&#123;</span><br><span class="line">		g_Adc_Wdg_Violation_Status = WDG_LOW_THRESHOLD_VIOLATION; <span class="comment">/* Low  threshold value test(dog_0): 0x0100-0x0F00 */</span></span><br><span class="line"></span><br><span class="line">		Siul2_Dio_Ip_WritePin(D28_RED_NORMAL_PORT, D28_RED_NORMAL_PIN, TURN_OFF_LED);<span class="comment">/* RB:RGBLED32_RED | WB:LED_D28 */</span></span><br><span class="line">		Siul2_Dio_Ip_WritePin(D29_GREEN_LOW_PORT, D29_GREEN_LOW_PIN, TURN_ON_LED);   <span class="comment">/* RB:RGBLED_GREEN | WB:LED_D29 */</span></span><br><span class="line">		Siul2_Dio_Ip_WritePin(D30_BLUE_HIGH_PORT, D30_BLUE_HIGH_PIN, TURN_OFF_LED);  <span class="comment">/* RB:RGBLED0_BLUE | WB:LED_D30 */</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(<span class="number">0</span> != (ADC_1-&gt;WTISR &amp; ADC_WTISR_HAWIF1_MASK))</span><br><span class="line">	&#123;</span><br><span class="line">		g_Adc_Wdg_Violation_Status = WDG_HIGH_THRESHOLD_VIOLATION;<span class="comment">/* High threshold value test(dog_0): 0x0100-0x0F00 */</span></span><br><span class="line"></span><br><span class="line">		Siul2_Dio_Ip_WritePin(D28_RED_NORMAL_PORT, D28_RED_NORMAL_PIN, TURN_OFF_LED);<span class="comment">/* RB:RGBLED32_RED | WB:LED_D28 */</span></span><br><span class="line">		Siul2_Dio_Ip_WritePin(D29_GREEN_LOW_PORT, D29_GREEN_LOW_PIN, TURN_OFF_LED);  <span class="comment">/* RB:RGBLED_GREEN | WB:LED_D29 */</span></span><br><span class="line">		Siul2_Dio_Ip_WritePin(D30_BLUE_HIGH_PORT, D30_BLUE_HIGH_PIN, TURN_ON_LED);   <span class="comment">/* RB:RGBLED0_BLUE | WB:LED_D30 */</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* @brief        ADC_1 Interrupt handler</span></span><br><span class="line"><span class="comment">* @details      Defined in Adc_Sar_Ip_Isr.c</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="title">ISR</span><span class="params">(Adc_Sar_1_Isr)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>Define the ADC Watchdog interrupt callback function here to handle the Low/High Threshold violation.<br>Declare the Interrupt Handler Adc_Sar_1_Isr.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p57.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* Write your code here */</span></span><br><span class="line">	uint32 i;</span><br><span class="line">	uint32 flag;</span><br><span class="line">	uint32 count;</span><br><span class="line">	StatusType status;</span><br><span class="line"></span><br><span class="line">	Clock_Ip_Init(&amp;Mcu_aClockConfigPB[<span class="number">0</span>]);</span><br><span class="line">	Siul2_Port_Ip_Init(NUM_OF_CONFIGURED_PINS0, g_pin_mux_InitConfigArr0);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Initialize(AnaWdg Normal) all LED_NORMAL_LOW_HIGH(high-active) firstly.*/</span></span><br><span class="line">	Siul2_Dio_Ip_WritePin(D28_RED_NORMAL_PORT, D28_RED_NORMAL_PIN, TURN_ON_LED);</span><br><span class="line">	Siul2_Dio_Ip_WritePin(D29_GREEN_LOW_PORT, D29_GREEN_LOW_PIN, TURN_OFF_LED);</span><br><span class="line">	Siul2_Dio_Ip_WritePin(D30_BLUE_HIGH_PORT, D30_BLUE_HIGH_PIN, TURN_OFF_LED);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/************************************************** Calibrate ADC ************************************************/</span></span><br><span class="line">    status = (StatusType) Adc_Sar_Ip_DoCalibration(SAR_ADC_INST1);</span><br><span class="line">    <span class="keyword">while</span> (status != E_OK)</span><br><span class="line">    &#123;</span><br><span class="line">    	status = (StatusType) Adc_Sar_Ip_DoCalibration(SAR_ADC_INST1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/************************************************** Self-Test ADC ************************************************/</span></span><br><span class="line">    status = (StatusType) Adc_Sar_Ip_SelfTest(SAR_ADC_INST1);</span><br><span class="line">    <span class="keyword">while</span> (status != E_OK)</span><br><span class="line">    &#123;</span><br><span class="line">    	status = (StatusType) Adc_Sar_Ip_SelfTest(SAR_ADC_INST1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/************************************************* Initialize ADC ************************************************/</span></span><br><span class="line">	status = (StatusType) Adc_Sar_Ip_Init(SAR_ADC_INST1, &amp;AdcHwUnit_0_BOARD_INITPERIPHERALS);</span><br><span class="line">    <span class="keyword">while</span>(status != E_OK)</span><br><span class="line">	&#123;</span><br><span class="line">    	status = (StatusType) Adc_Sar_Ip_Init(SAR_ADC_INST1, &amp;AdcHwUnit_0_BOARD_INITPERIPHERALS);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**************************** Install and enable ADC1 WDOG interrupt ISRs. ****************************/</span></span><br><span class="line">	IntCtrl_Ip_ConfigIrqRouting(&amp;intRouteConfig);</span><br><span class="line">	IntCtrl_Ip_Init(&amp;IntCtrlConfig_0);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Initialize a SW triggered NORMAL Scan conversion chain on SAR_ADC1.*/</span></span><br><span class="line">    Adc_Sar_Ip_StartConversion(SAR_ADC_INST1, ADC_SAR_IP_CONV_CHAIN_NORMAL);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Initialize the system clock, port, and pins(RED led will be turned on, and others will be turned off), implement ADC calibration and Self-test, then initialize the ADC.<br>Enable ADC ISR callback functions and install ADC ISR, then initialize the configured interrupts.<br>Initialize and start a conversion, because ADC1 is configured to Software Triggered Normal Scan mode, the conversion will be implemented continuously.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p58.png" class="" title="This is an example image">
+<p>We get the conversion results in a while loop.</p>
+<h4 id="Test-Results-1"><a href="#Test-Results-1" class="headerlink" title="Test Results"></a>Test Results</h4><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p59.png" class="" title="This is an example image">
+<p>Click “Resume” or “Step Over” to run the code, and the conversion results will be shown in the Expressions window, if the data is updated, the background’s color will be changed.<br>Let’s see the conversion results g_ResultInMv_Adc1[3]:<br>g_ResultInMv_Adc1[0] – 4996mV, VREFH Presampling 5V<br>g_ResultInMv_Adc1[1] – 4996mV, VREFH Presampling 5V<br>g_ResultInMv_Adc1[2] – 3146mV, POT0 3.1V</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p60.jpg" class="" title="This is an example image">
+<p>When the voltage on POT0 is higher than the High Threshold, the LED will turn blue.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p61.jpg" class="" title="This is an example image">
+<p>When the voltage on POT0 is lower than the Low Threshold, the LED will turn green.</p>
+<h3 id="Software-Triggered-Injected-Conversion-Example"><a href="#Software-Triggered-Injected-Conversion-Example" class="headerlink" title="Software Triggered Injected Conversion Example"></a>Software Triggered Injected Conversion Example</h3><p>In this example, we will use ADC2 to execute a software triggered Injected Conversion Chain. Normally, an Injected Conversion can be inserted into an ongoing conversion chain processed in Normal Conversion mode, the ongoing Normal Conversion will be stopped at the current channel, then the Injected Conversion get processed. After the Injected Conversion is finished, the suspended Normal Chain Conversion Chain is resumed from the channel which was aborted. </p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p62.png" class="" title="This is an example image">
+<p>The Injected Conversion will be execute in a while loop, and the conversion results will be red by Callback function(JECH). The conversion results of ADC2 are mapped to<br><strong>ADC2_S18(VREFH)|S19(POT1)|S20(VREFH)</strong><br>channels.</p>
+<h4 id="Pin-Configuration-2"><a href="#Pin-Configuration-2" class="headerlink" title="Pin Configuration"></a>Pin Configuration</h4><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p63.png" class="" title="This is an example image">
+<p>Configure Pins that we used according to the connections in schematics.</p>
+<h4 id="Components-Configuration-2"><a href="#Components-Configuration-2" class="headerlink" title="Components Configuration"></a>Components Configuration</h4><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p64.png" class="" title="This is an example image">
+<p>In this example we need Adc_Sar_Ip, IntCtrl_Ip, osif, Siul2_Dio, and Siul2_Port.</p>
+<h5 id="Adc-Sar-Ip-Configuration-2"><a href="#Adc-Sar-Ip-Configuration-2" class="headerlink" title="Adc_Sar_Ip Configuration"></a>Adc_Sar_Ip Configuration</h5><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p65.png" class="" title="This is an example image">
+<p>Select the Instance ADC2.<br>Select the One-shot mode.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p66.png" class="" title="This is an example image">
+<p>Set JECH callback function “ADC2_JECH_ISR_Callback”.<br>Enable channel indexes in the injected conversion.</p>
+<h5 id="IntCtrl-Ip-Configuration-2"><a href="#IntCtrl-Ip-Configuration-2" class="headerlink" title="IntCtrl_Ip Configuration"></a>IntCtrl_Ip Configuration</h5><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p67.png" class="" title="This is an example image">
+<p>Enable ADC2_IRQn, and set the priority to 5.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p68.png" class="" title="This is an example image">
+<p>Add ADC2’s Interrupt Handler in “Generic Interrupt Setting”.</p>
+<h4 id="Application-Codes-2"><a href="#Application-Codes-2" class="headerlink" title="Application Codes"></a>Application Codes</h4><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p69.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Including necessary configuration files. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Mcal.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                        INCLUDE FILES</span></span><br><span class="line"><span class="comment">* 1) system and project includes</span></span><br><span class="line"><span class="comment">* 2) needed interfaces from external units</span></span><br><span class="line"><span class="comment">* 3) internal and external interfaces from this unit</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Siul2_Port_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Siul2_Dio_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Clock_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;IntCtrl_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Adc_Sar_Ip.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                       LOCAL MACROS</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TURN_ON_LED                  1U</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TURN_OFF_LED                 0U</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LIMIT_VALUE                  10000000U</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SARADC_VREF                  5000U                                <span class="comment">/* 5v reference voltage */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SAR_ADC_INST2                2U                                   <span class="comment">/* ADC2 instance used   */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SAR_ADC_INST2_CH_NUM         3U                                   <span class="comment">/* ADC2 channel number  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> WDG_THRESHOLD_NORMAL         0U                                   <span class="comment">/* WDG  range normal    */</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                      GLOBAL VARIABLES</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line">uint16 g_Result_Adc2[<span class="number">3</span>];                                 <span class="comment">/* ADC2 channel conversion results       */</span></span><br><span class="line">uint16 g_ResultInMv_Adc2[<span class="number">3</span>];                             <span class="comment">/* ADC2 channel conversion results in mv */</span></span><br><span class="line">uint16 g_Adc_Wdg_Violation_Status;                       <span class="comment">/* Status of AnaWatchdog range violation */</span></span><br><span class="line">uint16 g_Adc_Wdg_Violation_CH_Number;                    <span class="comment">/* Channel number of WDG range violation */</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Include the necessary .h files first, then define the local macros and global variables.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p70.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*==================================================================================================</span></span><br><span class="line"><span class="comment">*                                       GLOBAL FUNCTIONS</span></span><br><span class="line"><span class="comment">==================================================================================================*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* @brief        Adc notification called by the end of Injected chain conversion periodically</span></span><br><span class="line"><span class="comment">* @details      Used to read the conversion results of ADC2_S18(VREFH)|S19(POT1)|S20(VREFH) channels</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ADC2_JECH_ISR_Callback</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	uint32 i;</span><br><span class="line"></span><br><span class="line">	Adc_Sar_Ip_GetConvDataToArray(SAR_ADC_INST2, ADC_SAR_IP_CONV_CHAIN_INJECTED, SAR_ADC_INST2_CH_NUM, g_Result_Adc2);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; SAR_ADC_INST2_CH_NUM; i++)</span><br><span class="line">	&#123;</span><br><span class="line">	    g_ResultInMv_Adc2[i] = (uint16) (SARADC_VREF * g_Result_Adc2[i] / (<span class="number">0xFFF</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* @brief        ADC_2 Interrupt handler</span></span><br><span class="line"><span class="comment">* @details      Defined in Adc_Sar_Ip_Isr.c</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="title">ISR</span><span class="params">(Adc_Sar_2_Isr)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>Define the ADC interrupt callback function called ADC2_JECH_ISR_Callback here to get the results of the Injected conversion.<br>Declare the Interrupt Handler Adc_Sar_2_Isr.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p71.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* Write your code here */</span></span><br><span class="line">	uint32 count;</span><br><span class="line">	StatusType status;</span><br><span class="line"></span><br><span class="line">	Clock_Ip_Init(&amp;Mcu_aClockConfigPB[<span class="number">0</span>]);</span><br><span class="line">	Siul2_Port_Ip_Init(NUM_OF_CONFIGURED_PINS0, g_pin_mux_InitConfigArr0);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/************************************************** Calibrate ADC ************************************************/</span></span><br><span class="line">    status = (StatusType) Adc_Sar_Ip_DoCalibration(SAR_ADC_INST2);</span><br><span class="line">    <span class="keyword">while</span> (status != E_OK)</span><br><span class="line">    &#123;</span><br><span class="line">    	status = (StatusType) Adc_Sar_Ip_DoCalibration(SAR_ADC_INST2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/************************************************** Self-Test ADC ************************************************/</span></span><br><span class="line">    status = (StatusType) Adc_Sar_Ip_SelfTest(SAR_ADC_INST2);</span><br><span class="line">    <span class="keyword">while</span> (status != E_OK)</span><br><span class="line">    &#123;</span><br><span class="line">    	status = (StatusType) Adc_Sar_Ip_SelfTest(SAR_ADC_INST2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/************************************************* Initialize ADC ************************************************/</span></span><br><span class="line">    status = (StatusType) Adc_Sar_Ip_Init(SAR_ADC_INST2, &amp;AdcHwUnit_0_BOARD_INITPERIPHERALS);</span><br><span class="line">    <span class="keyword">while</span>(status != E_OK)</span><br><span class="line">	&#123;</span><br><span class="line">    	status = (StatusType) Adc_Sar_Ip_Init(SAR_ADC_INST2, &amp;AdcHwUnit_0_BOARD_INITPERIPHERALS);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*********************************** Enable 2 JECH Callback Function ************************************/</span></span><br><span class="line">    Adc_Sar_Ip_EnableNotifications(SAR_ADC_INST2, ADC_SAR_IP_NOTIF_FLAG_INJECTED_ENDCHAIN);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**************************** Install and enable ADC2 JECH interrupt ISRs. ****************************/</span></span><br><span class="line">	IntCtrl_Ip_ConfigIrqRouting(&amp;intRouteConfig);</span><br><span class="line">	IntCtrl_Ip_Init(&amp;IntCtrlConfig_0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Initialize the system clock, port, and pins, implement ADC calibration and Self-test, then initialize the ADC.<br>Enable ADC ISR callback functions and install ADC ISR, then initialize the configured interrupts.</p>
+<img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p72.png" class="" title="This is an example image">
+<p>Because the Injected Conversion Chain only support Onse-shot mode, we implement the conversion in a while loop to let it executed continuously.</p>
+<h4 id="Test-Results-2"><a href="#Test-Results-2" class="headerlink" title="Test Results"></a>Test Results</h4><img src="/2021/09/25/Study-S32K3-From-Scratch-ADC/p73.png" class="" title="This is an example image">
+<p>Click “Resume” or “Step Over” to run the code, and the conversion results will be shown in the Expressions window, if the data is updated, the background’s color will be changed.<br>Let’s see the conversion results g_ResultInMv_Adc2[3]:<br>g_ResultInMv_Adc2[0] – 4996mV, VREFH Presampling 5V<br>g_ResultInMv_Adc2[1] – 4996mV, POT1 1.17V<br>g_ResultInMv_Adc2[2] – 3146mV, VREFH Presampling 5V</p>
+<p><strong><center><font color='red'>Note:</font></center></strong><br><strong><center>All opinions and descriptions in the text are personal acts and do not represent any official opinions of my company. All demos/codes/programs are only for reference, and the quality is not guaranteed. Any uses for commercial purposes are invalid and self-responsible.</center></strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Weo Wang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weo Wang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
