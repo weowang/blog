@@ -103,7 +103,7 @@
 <meta property="og:image" content="https://weowang.github.io/blog/2021/09/25/Study-S32K3-From-Scratch-ADC/p72.png">
 <meta property="og:image" content="https://weowang.github.io/blog/2021/09/25/Study-S32K3-From-Scratch-ADC/p73.png">
 <meta property="article:published_time" content="2021-09-25T14:12:04.000Z">
-<meta property="article:modified_time" content="2021-10-02T03:34:18.860Z">
+<meta property="article:modified_time" content="2022-01-02T10:43:34.957Z">
 <meta property="article:author" content="Weo Wang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://weowang.github.io/blog/2021/09/25/Study-S32K3-From-Scratch-ADC/p1.png">
@@ -261,7 +261,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-02 11:34:18" itemprop="dateModified" datetime="2021-10-02T11:34:18+08:00">2021-10-02</time>
+                <time title="Modified: 2022-01-02 18:43:34" itemprop="dateModified" datetime="2022-01-02T18:43:34+08:00">2022-01-02</time>
               </span>
 
           
@@ -288,6 +288,8 @@
 <img src="/blog/2021/09/25/Study-S32K3-From-Scratch-ADC/p4.png" class="" title="This is an example image">
 <p>When a single conversion is completed, the EOC flag is set and the End of Conversion(EOC) interrupt is issued(if enabled in MSKEOC); when a conversion chain is completed(the last conversion in the chain is completed), the ECH flag is set and End of Chain(ECH) interrupt is issued(if enabled in MSKECH).</p>
 <h3 id="Injected-–-supports-One-Shot-Conversion-only"><a href="#Injected-–-supports-One-Shot-Conversion-only" class="headerlink" title="Injected – supports One-Shot Conversion only"></a>Injected – supports One-Shot Conversion only</h3><p>The Injected Conversion can only be inserted into an ongoing conversion chain processed in Normal Conversion Mode.<br>When a single conversion is completed, the End of Injected Conversion(JEOC) interrupt is issued; when a injected conversion chain is completed, the End of Injected Chain(JECH) interrupt is issued.</p>
+<span id="more"></span>
+
 <h3 id="BCTU-–-supports-Single-and-List-Conversions"><a href="#BCTU-–-supports-Single-and-List-Conversions" class="headerlink" title="BCTU – supports Single and List Conversions"></a>BCTU – supports Single and List Conversions</h3><p>The BCTU interface enhances the Injected conversion capability of SAR_ADC, it generates the trigger and channel number to be converted, the conversion result as well as 2 output signals will be returned from ADC:</p>
 <img src="/blog/2021/09/25/Study-S32K3-From-Scratch-ADC/p5.png" class="" title="This is an example image">
 <p>The BCTU and ADC are always connected to the same clock domain, therefore they are synchronous.<br>The Priority of 3 Conversion Types<br><strong>Request BCTU Conversion during Injected Mode:</strong><br>Injected Mode Conversion – aborted<br>BCTU Conversion – processed<br><strong>Request BCTU Conversion during Normal Mode:</strong><br>Normal Mode Conversion – suspended<br>BCTU Conversion - processed<br><strong>Request Normal Mode Conversion during BCTU Conversion:</strong><br>Normal Mode Conversion – start after the BCTU conversion is completed<br>BCTU Conversion – processed<br><strong>Request Injected Mode Conversion during BCTU Conversion:</strong><br>Injected Mode Conversion – discarded<br>BCTU Conversion – processed</p>
