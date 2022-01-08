@@ -152,6 +152,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3's-ADC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Weo Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weo Wang's Der Bau">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2022/01/02/Tips-for-S32K3's-ADC/" class="post-title-link" itemprop="url">Tips for S32K3's ADC</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-01-02 21:05:00" itemprop="dateCreated datePublished" datetime="2022-01-02T21:05:00+08:00">2022-01-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-08 15:35:43" itemprop="dateModified" datetime="2022-01-08T15:35:43+08:00">2022-01-08</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="ADC-Conversion-Resolution’s-Configuration-in-DMA-Mode"><a href="#ADC-Conversion-Resolution’s-Configuration-in-DMA-Mode" class="headerlink" title="ADC Conversion Resolution’s Configuration in DMA Mode"></a>ADC Conversion Resolution’s Configuration in DMA Mode</h2><h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>As we know, there are 3 types of ADC channels on the S32K3xx series: Precision, Standard, and External, they have different accuracy and performance level, we can get the types of ADC channels by checking the Reference Manual.</p>
+<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P1.png" class="" title="This is an example image">
+<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P2.png" class="" title="This is an example image">
+<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P3.png" class="" title="This is an example image">
+<p>Normally, the conversion result can be processed automatically according to the resolution that we select in the ADC module’s configuration. While, if we use DMA to transfer conversion results, we need to process the conversion results manually. Currently, there is no explanation about this step, so I hope my article can help people who have the same questions when using DMA to transfer ADC conversion results.</p>
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>According to the Reference Manual, the conversion resolution can be modified by setting CALBISTREG[RESN], reducing the conversion resolution speeds up the conversion because the SAR algorithm executes fewer steps:</p>
+<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P4.png" class="" title="This is an example image">
+<p>But we need to pay attention, the conversion result is always 15 bits wide, even the selected resolution is smaller than 15 bits, I often call it “Raw Data”. </p>
+<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P5.png" class="" title="This is an example image">
+<p>Thus, the conversion result needs to be processed accordingly. For example, if the Adc Result Alignment is ADC_ALIGN_RIGHT(usually default), and the content in ICDR/PCDR’s 15-0(CDATA) is 0x31B:<br><code>0000 0011 0001 1011</code>,<br>The data occupies xCDR[14:0], the Raw Data should be:<br> <code>000 0011 0001 1011</code>,<br>Considering the physical characteristics of different types of ADC channels, we recommend RESOLUTION_10 for Standard channels and RESOLUTION_12 for Precision channels. </p>
+<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P6.png" class="" title="This is an example image">
+<p>If the ADC channel is Precision, the Raw Data should be converted from 15 bits to 12 bits:<br> <code>000 0011 0001 1011</code> &gt;&gt; 3<br>-&gt;<br> <code>0000 0110 0011</code>;<br>If we don’t use DMA to transfer conversion results, this step is implemented automatically:</p>
+<p>For example, in RTD-LLD’s source code:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*FUNCTION*********************************************************************</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Function Name : Adc_Sar_GetMaskedResult</span></span><br><span class="line"><span class="comment"> * Description   : Returns result masked accordingly with alignment</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *END*************************************************************************/</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">inline</span> uint16 <span class="title">Adc_Sar_GetMaskedResult</span><span class="params">(<span class="keyword">const</span> uint32 Instance,</span></span></span><br><span class="line"><span class="params"><span class="function">                                             <span class="keyword">const</span> uint32 Cdr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    uint32 CdrMask = ADC_CDR_CDATA_MASK;</span><br><span class="line">    uint16 Result;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> (ADC_SAR_IP_SET_RESOLUTION == STD_ON)</span></span><br><span class="line">    uint8 Resolution;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    uint8 Resolution = ADC_MAX_RESOLUTION;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* (ADC_SAR_IP_SET_RESOLUTION == STD_ON) */</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> (ADC_SAR_IP_SET_RESOLUTION == STD_ON)</span></span><br><span class="line">    <span class="keyword">if</span> (FALSE == aAdcSarState[Instance].bBypassResolution)</span><br><span class="line">    &#123;</span><br><span class="line">        Resolution = Adc_Sar_GetResolution(Instance);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Resolution = ADC_RESULT_RESOLUTION;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* (ADC_SAR_IP_SET_RESOLUTION == STD_ON) */</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* If the result is left aligned, adjust register mask accordingly */</span></span><br><span class="line">    <span class="keyword">if</span> (aAdcSarState[Instance].eDataAlign == ADC_SAR_IP_DATA_ALIGNED_LEFT)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/* Assumption: the width of the register is less than 16 */</span></span><br><span class="line">        CdrMask = (uint32)ADC_CDR_CDATA_MASK &lt;&lt; (<span class="number">16u</span> - Resolution);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> (ADC_SAR_IP_SET_RESOLUTION == STD_ON)</span></span><br><span class="line">        Result = ((uint16)(Cdr &amp; CdrMask)) &gt;&gt; ADC_CDR_CDATA_SHIFT;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* (ADC_SAR_IP_SET_RESOLUTION == STD_ON) */</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> (ADC_SAR_IP_SET_RESOLUTION == STD_ON)</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        CdrMask = ((uint32)ADC_CDR_CDATA_MASK &gt;&gt; <span class="number">1u</span>) &amp; ((uint32)ADC_CDR_CDATA_MASK &lt;&lt; (ADC_RESULT_RESOLUTION - Resolution));</span><br><span class="line">        Result = ((uint16)(Cdr &amp; CdrMask)) &gt;&gt; (ADC_RESULT_RESOLUTION - Resolution + ADC_CDR_CDATA_SHIFT);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    Result = ((uint16)(Cdr &amp; CdrMask)) &gt;&gt; ADC_CDR_CDATA_SHIFT;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* (ADC_SAR_IP_SET_RESOLUTION == STD_ON) */</span></span></span><br><span class="line">    <span class="keyword">return</span> Result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>While if using DMA to transfer, the conversion result we get is the so-call “Raw Data”, thus we need to convert them by ourselves.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2022/01/02/Tips-for-S32K3's-ADC/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://weowang.github.io/blog/2021/10/06/Study-S32K3-From-Scratch-BCTU/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -390,7 +476,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
