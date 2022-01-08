@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3">
 <meta property="og:image" content="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3">
 <meta property="article:published_time" content="2022-01-02T13:05:00.000Z">
-<meta property="article:modified_time" content="2022-01-08T07:35:43.228Z">
+<meta property="article:modified_time" content="2022-01-08T07:55:43.725Z">
 <meta property="article:author" content="Weo Wang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3">
@@ -197,7 +197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-08 15:35:43" itemprop="dateModified" datetime="2022-01-08T15:35:43+08:00">2022-01-08</time>
+                <time title="Modified: 2022-01-08 15:55:43" itemprop="dateModified" datetime="2022-01-08T15:55:43+08:00">2022-01-08</time>
               </span>
 
           
@@ -253,7 +253,7 @@
 <h3 id="Suggestions-2"><a href="#Suggestions-2" class="headerlink" title="Suggestions"></a>Suggestions</h3><p>Currently, we suggest the users to select the GPIO pads manually in the user code, for example, if we want to use ADC0_S8 and ASC0_S9 to sample analog inputs from GPIO45 and GPIO46:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ADC_MUX_MODE_SELECT_REG          IP_DCM_GPR-&gt;DCMRWF4</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ADC0_S8_MUX_MODE_SEL(x)          DCM_GPR_DCMRWF4_MUX_MODE_EN_ADC0_S8(x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ADC0_S9_MUX_MODE_SEL(x)          DCM_GPR_DCMRWF4_MUX_MODE_EN_ADC0_S9(x)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/******************************************** Initialize ADC ********************************************/</span></span><br><span class="line">Adc_Init(NULL_PTR);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Select ADC mux-mode channels ADC0_S8|S9 for GPIO[45]|[46] rather than default GPIO[0]|[1] pads.  */</span></span><br><span class="line">ADC_MUX_MODE_SELECT_REG |= ADC0_S8_MUX_MODE_SEL(<span class="number">1</span>)|ADC0_S9_MUX_MODE_SEL(<span class="number">1</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
+<p><strong><center><font color='red'>Note:</font></center></strong><br><strong><center>All opinions and descriptions in the text are personal acts and do not represent any official opinions of my company. All demos/codes/programs are only for reference, and the quality is not guaranteed. Any uses for commercial purposes are invalid and self-responsible.</center></strong></p>
 
     </div>
 
