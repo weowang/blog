@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Palatino Linotype:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/blog/lib/pace/pace-theme-center-atom.min.css">
+  <script src="/blog/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"weowang.github.io","root":"/blog/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Who is this article for?For people who wants to start S32K3 development.What is this article about?In this article, we may not spend too much time on the details of S32K3. Instead, we will configure a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Study S32K3 from Scratch - Software Triggered ADC in Scan Mode (MCAL Version)">
+<meta property="og:url" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/index.html">
+<meta property="og:site_name" content="Weo Wang&#39;s Der Bau">
+<meta property="og:description" content="Who is this article for?For people who wants to start S32K3 development.What is this article about?In this article, we may not spend too much time on the details of S32K3. Instead, we will configure a">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p1.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p2.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p3.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p4.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p5.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p6.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p7.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p8.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p9.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p10.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p11.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p12.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p13.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p14.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p15.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p16.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p17.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p18.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p19.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p20.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p21.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p22.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p23.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p24.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p25.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p26.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p27.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p28.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p29.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p30.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p31.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p32.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p33.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p34.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p35.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p36.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p37.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p38.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p39.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p40.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p41.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p42.png">
+<meta property="og:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p43.png">
+<meta property="article:published_time" content="2022-01-22T07:21:00.000Z">
+<meta property="article:modified_time" content="2022-01-22T10:38:19.864Z">
+<meta property="article:author" content="Weo Wang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p1.png">
+
+<link rel="canonical" href="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Study S32K3 from Scratch - Software Triggered ADC in Scan Mode (MCAL Version) | Weo Wang's Der Bau</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Weo Wang's Der Bau</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://weowang.github.io/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Weo Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weo Wang's Der Bau">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Study S32K3 from Scratch - Software Triggered ADC in Scan Mode (MCAL Version)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-01-22 15:21:00 / Modified: 18:38:19" itemprop="dateCreated datePublished" datetime="2022-01-22T15:21:00+08:00">2022-01-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>Who is this article for?</strong><br>For people who wants to start S32K3 development.<br><strong>What is this article about?</strong><br>In this article, we may not spend too much time on the details of S32K3. Instead, we will configure and debug different applications which utilize different peripherals, learning by doing it is the main theme of my articles.<br><strong>Why do I write this article?</strong><br>I struggled a lot at the beginning of learning embedded development, so I hope my articles can help people like me as a green hand, and they are also records of my self-teaching.</p>
+<h2 id="Build-Developing-Environment"><a href="#Build-Developing-Environment" class="headerlink" title="Build Developing Environment"></a>Build Developing Environment</h2><p>If we want to develop our applications on S32K3xx with MCAL, we need S32K3 Real-Time Drivers for Cortex-M, S32 Design Studio 3.4, EB tresos Studio 27.1.0, we can download them in the link below:<br><a target="_blank" rel="noopener" href="https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/s32k-automotive-mcus/s32k3-microcontrollers-for-general-purpose:S32K3">https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/s32k-automotive-mcus/s32k3-microcontrollers-for-general-purpose:S32K3</a><br>If you encounter problems, please contact NXP’s Account Managers or Technical Sale Representatives for help.</p>
+<h3 id="S32K3-Real-Time-Drivers-for-Cortex-M"><a href="#S32K3-Real-Time-Drivers-for-Cortex-M" class="headerlink" title="S32K3 Real-Time Drivers for Cortex-M"></a>S32K3 Real-Time Drivers for Cortex-M</h3><p>We can find S32K3 Real-Time Drivers for Cortex-M in the link above, it’s recommended to install it in the default path:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p1.png" class="" title="This is an example image">
+
+<h3 id="S32-Design-Studio-3-4"><a href="#S32-Design-Studio-3-4" class="headerlink" title="S32 Design Studio 3.4"></a>S32 Design Studio 3.4</h3><p>If we choose MCAL architecture for developing, S32 Design Studio is only for compiling and debugging, thus we don’t the internal development package for S32K3, but we still recommend to intall the latest S32DS S32K3 development package, in case you need to use RTD-LLD for developing one day. There is one thing that we should pay attention, we need GCC 10.2 for compiling:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p2.png" class="" title="This is an example image">
+<p>If your GCC version is not 10.2, you install it in S32 Design Studio’s Help -&gt; S32DS Extensions and Updates:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p3.png" class="" title="This is an example image">
+
+<h3 id="EB-Tresos-27-1"><a href="#EB-Tresos-27-1" class="headerlink" title="EB Tresos 27.1"></a>EB Tresos 27.1</h3><p>We can download EB Tresos 27.1 and get the license in the link provided above.</p>
+<h3 id="Developing-Environment’s-Verification"><a href="#Developing-Environment’s-Verification" class="headerlink" title="Developing Environment’s Verification"></a>Developing Environment’s Verification</h3><h4 id="Code-Generating-in-EB-Tresos-27-1"><a href="#Code-Generating-in-EB-Tresos-27-1" class="headerlink" title="Code Generating in EB Tresos 27.1"></a>Code Generating in EB Tresos 27.1</h4><p>Here I provide a template project to help users accelerate your setting:<br>Github -<br>If the developing environment is built, we can import the template project for testing. First of all we need to import Tresos project in EB:<br>File -&gt; Import -&gt; General -&gt; Existing Projects into Workspace</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p4.png" class="" title="This is an example image">
+<p>Choose the template project, and import the Tresos project inside it:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p5.png" class="" title="This is an example image">
+<p>Double click “someId(CORTEXM, S32K3XX)” to load the module list:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p6.png" class="" title="This is an example image">
+<p>Click “Generate code for the currently selected projects” (little hammer) to generate code:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p7.png" class="" title="This is an example image">
+<p>Here we finish the code generating in EB Tresos 27.1.</p>
+<h4 id="Project-Compiling-in-S32-Design-Studio-3-4"><a href="#Project-Compiling-in-S32-Design-Studio-3-4" class="headerlink" title="Project Compiling in S32 Design Studio 3.4"></a>Project Compiling in S32 Design Studio 3.4</h4><p>Click File -&gt; Import -&gt; General -&gt; Existing Projects into Workspace to import the template project, is the RTD is installed in the default path, we don’t need to anything, if the RTD is installed in other paths, we need to change some settings:</p>
+<ol>
+<li>Change the link path of MCAL plugins - right-click the template project, choose Properties -&gt; Resource -&gt; Linked Resources -&gt; Linked Resources -&gt; Absolute Path Location -&gt; Link_Source, and change path of MCAL plugins to the actual path;<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p8.png" class="" title="This is an example image"></li>
+<li>Change MCAL plugins’ compiling path - right-click the template project, choose Properties -&gt; C/C++ Build -&gt; Build Variables -&gt; MCAL_PLUGIN_PATH, replace it with the actual MCAL plugins path.<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p9.png" class="" title="This is an example image">
+Click the “Build” button to compile the template project, if everything goes well, “Build Finished. 0 errors, 0 warnings.” will be printed in the Console window, which indicates that the developing environment is successfully built.</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="Software-Triggered-Scan-Mode-ADC-Conversion"><a href="#Software-Triggered-Scan-Mode-ADC-Conversion" class="headerlink" title="Software Triggered Scan Mode ADC Conversion"></a>Software Triggered Scan Mode ADC Conversion</h2><p>Software triggered scan mode ADC conversion is relatively simple, we can start to get familiar with S32K3 RTD MCAL by developing it.</p>
+<h3 id="EB-Tresos-Project’s-Configuration"><a href="#EB-Tresos-Project’s-Configuration" class="headerlink" title="EB Tresos Project’s Configuration"></a>EB Tresos Project’s Configuration</h3><h4 id="Add-ADC-Module"><a href="#Add-ADC-Module" class="headerlink" title="Add ADC Module"></a>Add ADC Module</h4><p>Right-click the template project and choose “Module Configurations”:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p10.png" class="" title="This is an example image">
+<p>Double-click to add ADC module:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p11.png" class="" title="This is an example image">
+
+<h4 id="Dio-Module’s-Configuration"><a href="#Dio-Module’s-Configuration" class="headerlink" title="Dio Module’s Configuration"></a>Dio Module’s Configuration</h4><p>According to the S32K344 MaxQFP172 EVB’s schematic, the input pin of potentiometer is PTA11, ADC1’s S10:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p12.png" class="" title="This is an example image">
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p13.png" class="" title="This is an example image">
+<p>First of all we should configure this ADC channel in Dio module, click Dio -&gt; DioConfig -&gt; DioPort, and we will find A_H,A_L,B_H,B_L…What do they mean? After checking the attachment “S32K344_IOMUX” of S32K3xx’s Reference Manual, we can know that the IO ports are divided into 7 groups according to the A, B, C, D, E, F, G numbers(Devices in MaxQFP package don’t have F and G groups), normally, every group has 32 IOs(from 0 to 31), but some IOs may be missing in smaller packages(For example, MaxQFP172). H and L stand for the upper 16 bits and the lower 16 bits, for example, PTA29, a red LED has already been defined in A_H:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p14.png" class="" title="This is an example image">
+<p>Obviously, it belongs to upper 16 bits, so we defined it in A_H, it’s Dio Channel ID i 29-16=13.<br>Thus, PTA11 should be defined in A_L, its Dio Channel ID is 11, click Dio -&gt; DioConfig -&gt; DioPort -&gt; A_L -&gt; DioChannel to add a Dio channel and name it PTA11_ADC_POT0, its Channel ID is 11:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p15.png" class="" title="This is an example image">
+<p>Here we’ve finished the Dio module’s configuration according to the actual input.</p>
+<h4 id="Port-Module’s-Configuration"><a href="#Port-Module’s-Configuration" class="headerlink" title="Port Module’s Configuration"></a>Port Module’s Configuration</h4><p>Click Port -&gt; PortConfigSet -&gt; PortContainer -&gt; PortPin, we will find that an IO has already been defined here, we can add a PTA11_ADC1_S10 here:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p16.png" class="" title="This is an example image">
+<p>At this time, we notice that an error was occurred in “PortNumberOfPortPins”, its value is 1, but we’ve add another pin, so we should change it to 2:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p17.png" class="" title="This is an example image">
+<p>After that, we can click PTA11_ADC1_S10 to configure this port pin, there is 2 parameters that we need to modify:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p18.png" class="" title="This is an example image">
+<p>One of the parameters is PortPinMscr, we can find PTA11’s MSCR code is 11 in the IOMUX; another one is PortPin Mode, we should change it to ADC1_ADC1_S10. Now, we’ve finished the Port module’s configuration.</p>
+<h4 id="Enable-ADC’s-Clock"><a href="#Enable-ADC’s-Clock" class="headerlink" title="Enable ADC’s Clock"></a>Enable ADC’s Clock</h4><p>In MCAL projects we should enable peripherels’ clock in advance. Click Mcu -&gt; McuModuleConfiguration -&gt; McuModeSettingConf -&gt; McuModeSettingConf_Run -&gt; McuPartitionConfiguration -&gt; McuPeripheral to enable ADC1’s peripherel clock:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p19.png" class="" title="This is an example image">
+
+<h4 id="Adc-Module’s-Configuration"><a href="#Adc-Module’s-Configuration" class="headerlink" title="Adc Module’s Configuration"></a>Adc Module’s Configuration</h4><p>Once we load Adc module, we will find that errors are occurred in AdcInterrupt, one of them is “The number of containers in the AdcInterrupts list is not sufficient.”, while there are only 2 interrupts defined(End of Conversion and WatchDog):</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p20.png" class="" title="This is an example image">
+<p>Thus we need to add ADC1 and ADC2’s End of Conversion and WatchDog interrputs, and enable ADC1’s EOC interrupt:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p21.png" class="" title="This is an example image">
+<p>Then we start to configure the Adc module, click Adc -&gt; AdcGeneral for the general configurations, here we need to set the Config Variant to VariantPreCompile and ensure the conversion result of ADC is right aligned:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p22.png" class="" title="This is an example image">
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p23.png" class="" title="This is an example image">
+<p>Click Adc -&gt; AutosarExt to set the Timeout value of Adc module, here we recommend to use system clock, and set the Timeout value to 105984:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p24.png" class="" title="This is an example image">
+<p>Adc Channels Indexes Symbolic Names，Adc Conversion Time Once and Adc Enable CalibrationAPI should be selected:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p25.png" class="" title="This is an example image">
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p26.png" class="" title="This is an example image">
+<p>Click Adc -&gt; AdcConfigSet -&gt; AdcHwUnit, we can change the ADC hardware unit’s name to POT_ADC1_S10 for convenience:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p27.png" class="" title="This is an example image">
+<p>Click POT_ADC1_S10 to configure this ADC hardware unit, the actual input is ADC1’s S10, so we need to choose ADC1 for Adc Hardware Unit, and choose ADC_INTERRUPT for Adc Transfer Type:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p28.png" class="" title="This is an example image">
+<p>Enable Adc Prescaler Value, set the Adc Prescaler Value to 2 and set Adc Calibration Prescale to 4:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p29.png" class="" title="This is an example image">
+<p>Click Conversion resolution, set the resolution to RESOLUTION_10(you can find the explanation of different ADC channel type’s resolution in my previous article - Tips for S32K3’s ADC):</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p30.png" class="" title="This is an example image">
+<p>Enable AdcNormalConvTimings:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p31.png" class="" title="This is an example image">
+<p>Click AdcChannel, change the ADC channel’s name to Pot_Adc1_S10 for convenience:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p32.png" class="" title="This is an example image">
+<p>Click Pot_Adc1_S10 to cnfigure the ADC channel, because we are using ADC1’s S10, we should choose S10_ChanNum34 for Adc Physical Channel Name, and input 34 for Adc Physical Channel ID:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p33.png" class="" title="This is an example image">
+<p>Click Pot_Adc1_S10 -&gt; AdcGroup to configuration Adc Group, there are 4 parameters that we need to pay attention:</p>
+<ol>
+<li>Adc Group Conversion Mode - in this guide, we trigger ADC conversion in scan mode, so we choose ADC_CONV_MODE_CONTINUOUS;</li>
+<li>Adc Group Conversion Type - in this demo, ADC will work in normal mode, so we choose ADC_CONV_TYPE_NORMAL;</li>
+<li>Adc Group Trigger Source - we will manually trigger the conversion in software in this demo, so we choose ADC_TRIGG_SRC_SW;</li>
+<li>Adc Group Without Interrupts - we will not use any interrupts, so we should enable this item.<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p34.png" class="" title="This is an example image">
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p35.png" class="" title="This is an example image">
+Click Adc -&gt; AdcConfigSet -&gt; AdcHwUnit -&gt; POT_ADC1_S10 -&gt; AdcGroup -&gt; AdcGroup_0 -&gt; AdcGroupDefinition, choose Pot_Adc1_S10:<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p36.png" class="" title="This is an example image">
+Here, we finished the configurations of modules that we need to use, save the project and click “Generate code for the currently selected projects” to generate code:<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p37.png" class="" title="This is an example image"></li>
+</ol>
+<h3 id="Demo-Code"><a href="#Demo-Code" class="headerlink" title="Demo Code"></a>Demo Code</h3><p>First we need to import Adc module’s code:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p38.png" class="" title="This is an example image">
+<p>Open main.c file, import related header files:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p39.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Adc.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Adc_Sar_Ip.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;S32K344_DCM_GPR.h&quot;</span></span></span><br></pre></td></tr></table></figure>
+<p>The reason of import “S32K344_DCM_GPR.h” is about ADC’s Mux-mode Channels, please refer to my previous article - Tips for S32K3’s ADC.<br>Define ADC Reference Voltage, ADC Hardware Unit and number of ADC channels defined in ADC Group, conversion’s read buffer and result buffer:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p40.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/****************Module Preprocessor Macros************/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ADC_VREF                         5000U<span class="comment">/* 5000mv reference voltage */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ADC1                             0U<span class="comment">/* AdcHwUnit0, SAR_ADC1 instance used */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ADC1_GROUP0_CH_NUM               1U<span class="comment">/* Sw Single Continuous Poll*/</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LIMIT_VALUE                      1000000U</span></span><br><span class="line"><span class="comment">/**************** Module Variable Definitions************/</span></span><br><span class="line">Adc_ValueGroupType g_ReadBuffer_Adc1_Group0[ADC1_GROUP0_CH_NUM];</span><br><span class="line">Adc_ValueGroupType g_ResultBuffer_Adc1_Group0[ADC1_GROUP0_CH_NUM];</span><br><span class="line">Adc_ValueGroupType g_AdcDataInMv_Adc1_Group0[ADC1_GROUP0_CH_NUM];</span><br></pre></td></tr></table></figure>
+<p>Execute ADC’s initialization, calibration, and start the conversion in <code>int main(void)&#123;&#125;</code>, pay attention, the first parameter of <code>Adc_SetupResultBuffer()</code> is the group name that we defined in ADC Group:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p41.png" class="" title="This is an example image">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**************** Initialize ADC ************/</span></span><br><span class="line">Adc_Init(NULL_PTR);</span><br><span class="line"><span class="comment">/**************** Calibrate ADC ************/</span></span><br><span class="line"><span class="comment">/* The calibration time = 26496 / 40MHz, so the timeout value of System_Timer(160MHz) should be 105984. */</span></span><br><span class="line">Adc_Calibrate(ADC1, &amp;CalibStatus);</span><br><span class="line"><span class="keyword">while</span>(E_OK != CalibStatus.Adc_UnitSelfTestStatus) &#123;&#125;</span><br><span class="line">Adc_SetupResultBuffer(AdcGroup_0, g_ResultBuffer_Adc1_Group0);<span class="comment">/* Not needed, only for AUTOSAR standard */</span></span><br><span class="line"><span class="comment">/* Start a SW triggered Single(Access) - Continuous(Conversion|Scan) chain on ADC1_Group0. */</span></span><br><span class="line">Adc_StartGroupConversion(AdcGroup_0);</span><br><span class="line"><span class="comment">/* Read by Poll */</span></span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line"> 	count++;</span><br><span class="line">	<span class="keyword">if</span>(count &gt; LIMIT_VALUE)</span><br><span class="line">	&#123;</span><br><span class="line">		Adc_ReadGroup(AdcGroup_0, g_ReadBuffer_Adc1_Group0);</span><br><span class="line">	  	<span class="comment">/* Read conversion data of ADC1_Group0 S10 channel. */</span></span><br><span class="line">	  	<span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; ADC1_GROUP0_CH_NUM; i++)</span><br><span class="line">	  	&#123;</span><br><span class="line">			g_AdcDataInMv_Adc1_Group0[i] =  (uint16) (ADC_VREF * g_ReadBuffer_Adc1_Group0[i] / (<span class="number">0x3FF</span>));</span><br><span class="line">		&#125;</span><br><span class="line">		count = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Click Build to compile the project, and then program the code into the EVB:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p42.png" class="" title="This is an example image">
+<p>Add the results buffer in the Experssions window to observe the conversion results:</p>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p43.png" class="" title="This is an example image">
+<p>We can see that the volage of the potentiometer has been successfully sampled.</p>
+<p>Thanks for the support from NXP GPIS AE Team, including Zheng Lin, Jason Yang, Stephen Du, etc.</p>
+<p><strong><center><font color='red'>Note:</font></center></strong><br><strong><center>All opinions and descriptions in the text are personal acts and do not represent any official opinions of my company. All demos/codes/programs are only for reference, and the quality is not guaranteed. Any uses for commercial purposes are invalid and self-responsible.</center></strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2022/01/15/Common-Use-Cases-Of-S32K3's-ADC/" rel="prev" title="Common Use Cases of S32K3's ADC">
+      <i class="fa fa-chevron-left"></i> Common Use Cases of S32K3's ADC
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-Developing-Environment"><span class="nav-number">1.</span> <span class="nav-text">Build Developing Environment</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#S32K3-Real-Time-Drivers-for-Cortex-M"><span class="nav-number">1.1.</span> <span class="nav-text">S32K3 Real-Time Drivers for Cortex-M</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#S32-Design-Studio-3-4"><span class="nav-number">1.2.</span> <span class="nav-text">S32 Design Studio 3.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EB-Tresos-27-1"><span class="nav-number">1.3.</span> <span class="nav-text">EB Tresos 27.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Developing-Environment%E2%80%99s-Verification"><span class="nav-number">1.4.</span> <span class="nav-text">Developing Environment’s Verification</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Code-Generating-in-EB-Tresos-27-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">Code Generating in EB Tresos 27.1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Project-Compiling-in-S32-Design-Studio-3-4"><span class="nav-number">1.4.2.</span> <span class="nav-text">Project Compiling in S32 Design Studio 3.4</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Software-Triggered-Scan-Mode-ADC-Conversion"><span class="nav-number">2.</span> <span class="nav-text">Software Triggered Scan Mode ADC Conversion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#EB-Tresos-Project%E2%80%99s-Configuration"><span class="nav-number">2.1.</span> <span class="nav-text">EB Tresos Project’s Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Add-ADC-Module"><span class="nav-number">2.1.1.</span> <span class="nav-text">Add ADC Module</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dio-Module%E2%80%99s-Configuration"><span class="nav-number">2.1.2.</span> <span class="nav-text">Dio Module’s Configuration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Port-Module%E2%80%99s-Configuration"><span class="nav-number">2.1.3.</span> <span class="nav-text">Port Module’s Configuration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Enable-ADC%E2%80%99s-Clock"><span class="nav-number">2.1.4.</span> <span class="nav-text">Enable ADC’s Clock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adc-Module%E2%80%99s-Configuration"><span class="nav-number">2.1.5.</span> <span class="nav-text">Adc Module’s Configuration</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo-Code"><span class="nav-number">2.2.</span> <span class="nav-text">Demo Code</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Weo Wang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weo Wang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/blog/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+  <script defer src="/blog/lib/three/three.min.js"></script>
+    <script defer src="/blog/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

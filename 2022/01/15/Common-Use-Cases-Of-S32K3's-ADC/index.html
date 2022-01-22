@@ -24,27 +24,17 @@
 
   <meta name="description" content="ADC Conversion Resolution’s Configuration in DMA ModeBackgroundAs we know, there are 3 types of ADC channels on the S32K3xx series: Precision, Standard, and External, they have different accuracy and">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tips for S32K3&#39;s ADC">
-<meta property="og:url" content="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3's-ADC/index.html">
+<meta property="og:title" content="Common Use Cases of S32K3&#39;s ADC">
+<meta property="og:url" content="https://weowang.github.io/blog/2022/01/15/Common-Use-Cases-Of-S32K3's-ADC/index.html">
 <meta property="og:site_name" content="Weo Wang&#39;s Der Bau">
 <meta property="og:description" content="ADC Conversion Resolution’s Configuration in DMA ModeBackgroundAs we know, there are 3 types of ADC channels on the S32K3xx series: Precision, Standard, and External, they have different accuracy and">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3">
-<meta property="og:image" content="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3">
-<meta property="og:image" content="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3">
-<meta property="og:image" content="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3">
-<meta property="og:image" content="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3">
-<meta property="og:image" content="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3">
-<meta property="og:image" content="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3">
-<meta property="og:image" content="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3">
-<meta property="og:image" content="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3">
-<meta property="article:published_time" content="2022-01-02T13:05:00.000Z">
-<meta property="article:modified_time" content="2022-01-12T03:16:17.188Z">
+<meta property="article:published_time" content="2022-01-15T06:05:00.000Z">
+<meta property="article:modified_time" content="2022-01-19T09:40:03.883Z">
 <meta property="article:author" content="Weo Wang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3">
 
-<link rel="canonical" href="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3's-ADC/">
+<link rel="canonical" href="https://weowang.github.io/blog/2022/01/15/Common-Use-Cases-Of-S32K3's-ADC/">
 
 
 <script id="page-configurations">
@@ -57,7 +47,7 @@
   };
 </script>
 
-  <title>Tips for S32K3's ADC | Weo Wang's Der Bau</title>
+  <title>Common Use Cases of S32K3's ADC | Weo Wang's Der Bau</title>
   
 
 
@@ -167,7 +157,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://weowang.github.io/blog/2022/01/02/Tips-for-S32K3's-ADC/">
+    <link itemprop="mainEntityOfPage" href="https://weowang.github.io/blog/2022/01/15/Common-Use-Cases-Of-S32K3's-ADC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -180,7 +170,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Tips for S32K3's ADC
+          Common Use Cases of S32K3's ADC
         </h1>
 
         <div class="post-meta">
@@ -190,14 +180,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-01-02 21:05:00" itemprop="dateCreated datePublished" datetime="2022-01-02T21:05:00+08:00">2022-01-02</time>
+              <time title="Created: 2022-01-15 14:05:00" itemprop="dateCreated datePublished" datetime="2022-01-15T14:05:00+08:00">2022-01-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-12 11:16:17" itemprop="dateModified" datetime="2022-01-12T11:16:17+08:00">2022-01-12</time>
+                <time title="Modified: 2022-01-19 17:40:03" itemprop="dateModified" datetime="2022-01-19T17:40:03+08:00">2022-01-19</time>
               </span>
 
           
@@ -212,16 +202,16 @@
 
       
         <h2 id="ADC-Conversion-Resolution’s-Configuration-in-DMA-Mode"><a href="#ADC-Conversion-Resolution’s-Configuration-in-DMA-Mode" class="headerlink" title="ADC Conversion Resolution’s Configuration in DMA Mode"></a>ADC Conversion Resolution’s Configuration in DMA Mode</h2><h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>As we know, there are 3 types of ADC channels on the S32K3xx series: Precision, Standard, and External, they have different accuracy and performance level, we can get the types of ADC channels by checking the Reference Manual.</p>
-<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P1.png" class="" title="This is an example image">
-<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P2.png" class="" title="This is an example image">
-<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P3.png" class="" title="This is an example image">
+
+
+
 <p>Normally, the conversion result can be processed automatically according to the resolution that we select in the ADC module’s configuration. While, if we use DMA to transfer conversion results, we need to process the conversion results manually. Currently, there is no explanation about this step, so I hope my article can help people who have the same questions when using DMA to transfer ADC conversion results.</p>
 <h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>According to the Reference Manual, the conversion resolution can be modified by setting CALBISTREG[RESN], reducing the conversion resolution speeds up the conversion because the SAR algorithm executes fewer steps:</p>
-<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P4.png" class="" title="This is an example image">
+
 <p>But we need to pay attention, the conversion result is always 15 bits wide, even the selected resolution is smaller than 15 bits, I often call it “Raw Data”. </p>
-<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P5.png" class="" title="This is an example image">
+
 <p>Thus, the conversion result needs to be processed accordingly. For example, if the Adc Result Alignment is ADC_ALIGN_RIGHT(usually default), and the content in ICDR/PCDR’s 15-0(CDATA) is 0x31B:<br><code>0000 0011 0001 1011</code>,<br>The data occupies xCDR[14:0], the Raw Data should be:<br> <code>000 0011 0001 1011</code>,<br>Considering the physical characteristics of different types of ADC channels, we recommend RESOLUTION_10 for Standard channels and RESOLUTION_12 for Precision channels. </p>
-<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P6.png" class="" title="This is an example image">
+
 <p>If the ADC channel is Precision, the Raw Data should be converted from 15 bits to 12 bits:<br> <code>000 0011 0001 1011</code> &gt;&gt; 3<br>-&gt;<br> <code>0000 0110 0011</code>;<br>If we don’t use DMA to transfer conversion results, this step is implemented automatically:</p>
 <p>For example, in RTD-LLD’s source code:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*FUNCTION*********************************************************************</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Function Name : Adc_Sar_GetMaskedResult</span></span><br><span class="line"><span class="comment"> * Description   : Returns result masked accordingly with alignment</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *END*************************************************************************/</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">inline</span> uint16 <span class="title">Adc_Sar_GetMaskedResult</span><span class="params">(<span class="keyword">const</span> uint32 Instance,</span></span></span><br><span class="line"><span class="params"><span class="function">                                             <span class="keyword">const</span> uint32 Cdr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    uint32 CdrMask = ADC_CDR_CDATA_MASK;</span><br><span class="line">    uint16 Result;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> (ADC_SAR_IP_SET_RESOLUTION == STD_ON)</span></span><br><span class="line">    uint8 Resolution;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    uint8 Resolution = ADC_MAX_RESOLUTION;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* (ADC_SAR_IP_SET_RESOLUTION == STD_ON) */</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> (ADC_SAR_IP_SET_RESOLUTION == STD_ON)</span></span><br><span class="line">    <span class="keyword">if</span> (FALSE == aAdcSarState[Instance].bBypassResolution)</span><br><span class="line">    &#123;</span><br><span class="line">        Resolution = Adc_Sar_GetResolution(Instance);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Resolution = ADC_RESULT_RESOLUTION;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* (ADC_SAR_IP_SET_RESOLUTION == STD_ON) */</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* If the result is left aligned, adjust register mask accordingly */</span></span><br><span class="line">    <span class="keyword">if</span> (aAdcSarState[Instance].eDataAlign == ADC_SAR_IP_DATA_ALIGNED_LEFT)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/* Assumption: the width of the register is less than 16 */</span></span><br><span class="line">        CdrMask = (uint32)ADC_CDR_CDATA_MASK &lt;&lt; (<span class="number">16u</span> - Resolution);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> (ADC_SAR_IP_SET_RESOLUTION == STD_ON)</span></span><br><span class="line">        Result = ((uint16)(Cdr &amp; CdrMask)) &gt;&gt; ADC_CDR_CDATA_SHIFT;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* (ADC_SAR_IP_SET_RESOLUTION == STD_ON) */</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> (ADC_SAR_IP_SET_RESOLUTION == STD_ON)</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        CdrMask = ((uint32)ADC_CDR_CDATA_MASK &gt;&gt; <span class="number">1u</span>) &amp; ((uint32)ADC_CDR_CDATA_MASK &lt;&lt; (ADC_RESULT_RESOLUTION - Resolution));</span><br><span class="line">        Result = ((uint16)(Cdr &amp; CdrMask)) &gt;&gt; (ADC_RESULT_RESOLUTION - Resolution + ADC_CDR_CDATA_SHIFT);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    Result = ((uint16)(Cdr &amp; CdrMask)) &gt;&gt; ADC_CDR_CDATA_SHIFT;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* (ADC_SAR_IP_SET_RESOLUTION == STD_ON) */</span></span></span><br><span class="line">    <span class="keyword">return</span> Result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -229,7 +219,7 @@
 <span id="more"></span>
 
 <h3 id="Suggestions"><a href="#Suggestions" class="headerlink" title="Suggestions"></a>Suggestions</h3><p>First of all, we need to set the Conversion resolution for different types of ADC channels(Precision - RESOLUTION_12, Standard - RESOLUTION_10):</p>
-<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P7.png" class="" title="This is an example image">
+
 <p>Usually, we get the ADC conversion results in interrupts or while-loops, for example:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ADC0_ECH_ISR_Callback</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	uint32 i;</span><br><span class="line"></span><br><span class="line">	Adc_Sar_Ip_GetConvDataToArray(SAR_ADC_INST0, ADC_SAR_IP_CONV_CHAIN_NORMAL, SAR_ADC_INST0_CH_NUM, g_Result_Adc0);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; SAR_ADC_INST0_CH_NUM; i++)</span><br><span class="line">	&#123;</span><br><span class="line">	    g_ResultInMv_Adc0[i] =  (uint16) (SARADC_VREF * g_Result_Adc0[i] / (<span class="number">0xFFF</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Or:</p>
@@ -245,10 +235,10 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Single Conversion */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DMA_CH0_CONFIG_LIST_DIMENSION    2U                         <span class="comment">/* Src|Dst address for BCTU*/</span></span></span><br><span class="line"></span><br><span class="line">Adc_ValueGroupType g_Result_Hw_Bctu_Trigger __attribute__ ((section(<span class="string">&quot;.mcal_data_no_cacheable&quot;</span>)));</span><br><span class="line"></span><br><span class="line"><span class="comment">/* DMA Logic Channel Source|Destination Address Configuration.*/</span></span><br><span class="line">Mcl_DmaChannelTransferListType DmaCh0_TransferList[DMA_CH0_CONFIG_LIST_DIMENSION] =</span><br><span class="line">&#123;</span><br><span class="line">    &#123;MCL_DMA_CH_SET_SOURCE_ADDRESS, (uint32)&amp;(IP_BCTU-&gt;ADCDR[n1])&#125;,   <span class="comment">/* n1: ADC Instance */</span></span><br><span class="line">    &#123;MCL_DMA_CH_SET_DESTINATION_ADDRESS, (uint32)&amp;g_Result_Hw_Bctu_Trigger&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Initialize such DMA TRGMUX eMIOS drivers */</span></span><br><span class="line">Mcl_Init(NULL_PTR);</span><br><span class="line"></span><br><span class="line"><span class="comment">/******************************************** Reconfigure DMA *******************************************/</span></span><br><span class="line">Mcl_SetDmaChannelTransferList(DMA_LOGIC_CH_0, DmaCh0_TransferList, DMA_CH0_CONFIG_LIST_DIMENSION);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* List Fifo Conversion */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ADC_BCTU_LIST_FIFO_CH_NUM       n1U       <span class="comment">/* Bctu_List_Fifo DMA */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BCTU_FIFO1                       0U</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DMA_CH0_CONFIG_LIST_DIMENSION    1U       <span class="comment">/* Configure TCD16_CSR[DREQ]*/</span></span></span><br><span class="line"></span><br><span class="line">Adc_ValueGroupType g_ResultInMv_Adc_Bctu_Fifo[ADC_BCTU_LIST_FIFO_CH_NUM];</span><br><span class="line"></span><br><span class="line"><span class="comment">/* DMA Logic Channel 0 CSR[DREQ] Reconfigure(enable HW request).*/</span></span><br><span class="line">Mcl_DmaChannelTransferListType DmaCh0_TransferList[DMA_CH0_CONFIG_LIST_DIMENSION] =</span><br><span class="line">&#123;</span><br><span class="line">    &#123;MCL_DMA_CH_SET_CONTROL_DIS_AUTO_REQUEST, <span class="literal">false</span>&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Initialize such DMA TRGMUX eMIOS drivers */</span></span><br><span class="line">Mcl_Init(NULL_PTR);</span><br><span class="line"></span><br><span class="line"><span class="comment">/******************************************** Reconfigure DMA *******************************************/</span></span><br><span class="line">Mcl_SetDmaChannelTransferList(DMA_LOGIC_CH_0, DmaCh0_TransferList, DMA_CH0_CONFIG_LIST_DIMENSION);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="ADC-Mux-mode-Channels’-Configuration"><a href="#ADC-Mux-mode-Channels’-Configuration" class="headerlink" title="ADC Mux-mode Channels’ Configuration"></a>ADC Mux-mode Channels’ Configuration</h2><h3 id="Background-2"><a href="#Background-2" class="headerlink" title="Background"></a>Background</h3><p>According to the Reference manual, there are some channels in ADC which are driven by multiple pads. For example, GPIO0 and GPIO45 are both connected to ADC0_S8.</p>
-<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P8.png" class="" title="This is an example image">
+
 <p>GPIO0 is the default pad for ADC0_S8, if we need to use ADC0_S8 to sample a analog input from GPIO45, what should we do? </p>
 <h3 id="Analysis-2"><a href="#Analysis-2" class="headerlink" title="Analysis"></a>Analysis</h3><p>For this kind of situations, GPR bits from DCM are used to define which pad is connected to a particular channel. But it can’t be configured in EB Tresos and S32 Configuration Tool, because there is no DCM module for users to configure.</p>
-<img src="/blog/2022/01/02/Tips-for-S32K3's-ADC/P9.png" class="" title="This is an example image">
+
 
 <h3 id="Suggestions-2"><a href="#Suggestions-2" class="headerlink" title="Suggestions"></a>Suggestions</h3><p>Currently, we suggest the users to select the GPIO pads manually in the user code, for example, if we want to use ADC0_S8 and ADC0_S9 to sample analog inputs from GPIO45 and GPIO46:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ADC_MUX_MODE_SELECT_REG          IP_DCM_GPR-&gt;DCMRWF4</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ADC0_S8_MUX_MODE_SEL(x)          DCM_GPR_DCMRWF4_MUX_MODE_EN_ADC0_S8(x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ADC0_S9_MUX_MODE_SEL(x)          DCM_GPR_DCMRWF4_MUX_MODE_EN_ADC0_S9(x)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/******************************************** Initialize ADC ********************************************/</span></span><br><span class="line">Adc_Init(NULL_PTR);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Select ADC mux-mode channels ADC0_S8|S9 for GPIO[45]|[46] rather than default GPIO[0]|[1] pads.  */</span></span><br><span class="line">ADC_MUX_MODE_SELECT_REG |= ADC0_S8_MUX_MODE_SEL(<span class="number">1</span>)|ADC0_S9_MUX_MODE_SEL(<span class="number">1</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -269,12 +259,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2021/10/06/Study-S32K3-From-Scratch-BCTU/" rel="prev" title="Study S32K3 From Scratch - BCTU">
-      <i class="fa fa-chevron-left"></i> Study S32K3 From Scratch - BCTU
+    <a href="/blog/2022/01/02/Tips-for-S32K3's-ADC/" rel="prev" title="Tips for S32K3's ADC">
+      <i class="fa fa-chevron-left"></i> Tips for S32K3's ADC
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/2022/01/15/Common-Use-Cases-Of-S32K3's-ADC/" rel="next" title="Common Use Cases of S32K3's ADC">
-      Common Use Cases of S32K3's ADC <i class="fa fa-chevron-right"></i>
+    <a href="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/" rel="next" title="Study S32K3 from Scratch - Software Triggered ADC in Scan Mode (MCAL Version)">
+      Study S32K3 from Scratch - Software Triggered ADC in Scan Mode (MCAL Version) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
