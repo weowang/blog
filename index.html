@@ -175,10 +175,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-01-22 15:21:00 / Modified: 22:27:45" itemprop="dateCreated datePublished" datetime="2022-01-22T15:21:00+08:00">2022-01-22</time>
+              <time title="Created: 2022-01-22 15:21:00" itemprop="dateCreated datePublished" datetime="2022-01-22T15:21:00+08:00">2022-01-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-25 11:11:48" itemprop="dateModified" datetime="2022-01-25T11:11:48+08:00">2022-01-25</time>
+              </span>
 
           
 
@@ -213,9 +219,15 @@
 <p>Here we’ve finished the code generating in EB Tresos 27.1.</p>
 <h4 id="Project-Compiling-in-S32-Design-Studio-3-4"><a href="#Project-Compiling-in-S32-Design-Studio-3-4" class="headerlink" title="Project Compiling in S32 Design Studio 3.4"></a>Project Compiling in S32 Design Studio 3.4</h4><p>Click File -&gt; Import -&gt; General -&gt; Existing Projects into Workspace to import the template project, if the RTD is installed in the default path, we don’t need to do anything, but if the RTD is installed in other paths, we need to change some settings:</p>
 <ol>
-<li>Change the link path of MCAL plugins - right-click the template project, choose Properties -&gt; Resource -&gt; Linked Resources -&gt; Linked Resources -&gt; Absolute Path Location -&gt; Link_Source, and replace the path of MCAL plugins with the actual path;<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p8.png" class="" title="This is an example image"></li>
-<li>Change the MCAL plugins’ compiling path - right-click the template project, choose Properties -&gt; C/C++ Build -&gt; Build Variables -&gt; MCAL_PLUGIN_PATH, replace it with the actual MCAL plugins path.<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p9.png" class="" title="This is an example image"></li>
+<li>Change the link path of MCAL plugins - right-click the template project, choose Properties -&gt; Resource -&gt; Linked Resources -&gt; Linked Resources -&gt; Absolute Path Location -&gt; Link_Source, and replace the path of MCAL plugins with the actual path;</li>
 </ol>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p8.png" class="" title="This is an example image">
+
+<ol start="2">
+<li>Change the MCAL plugins’ compiling path - right-click the template project, choose Properties -&gt; C/C++ Build -&gt; Build Variables -&gt; MCAL_PLUGIN_PATH, replace it with the actual MCAL plugins path.</li>
+</ol>
+<img src="/blog/2022/01/22/Study-S32K3-From-Scratch-Software-Triggered-ADC-In-Scan-Mode-MCAL-Version/p9.png" class="" title="This is an example image">
+
 <p>Click the “Build” button to compile the template project, if everything goes well, “Build Finished. 0 errors, 0 warnings.” should be printed in the Console window, which indicates that the developing environment is successfully built.</p>
           <!--noindex-->
             <div class="post-button">
